@@ -1,25 +1,25 @@
 package com.inpt.gestionecole.models;
 
-public class EmploiDuTemps {
-	private int ID_EMPLOI;
+public class Planning {
+	private int ID_Planning;
 	Enseignant enseignant;
 	Matiere matiere;
 	Filiere filiere;
 	Salle salle ;
 	Horaire horaire;
 
-	public EmploiDuTemps() {
+	public Planning() {
 
 	}
 	
-	public EmploiDuTemps(int iD_EMPLOI) {
+	public Planning(int iD_Planning) {
 		super();
-		ID_EMPLOI = iD_EMPLOI;
+		ID_Planning = iD_Planning;
 	}
 
-	public EmploiDuTemps(int iD_EMPLOI, Enseignant enseignant, Matiere matiere, Filiere filiere,Salle salle, Horaire horaire) {
+	public Planning(int iD_Planning, Enseignant enseignant, Matiere matiere, Filiere filiere,Salle salle, Horaire horaire) {
 		super();
-		ID_EMPLOI = iD_EMPLOI;
+		ID_Planning = iD_Planning;
 		this.enseignant = enseignant;
 		this.matiere = matiere;
 		this.filiere = filiere;
@@ -35,12 +35,12 @@ public class EmploiDuTemps {
 		this.salle = salle;
 	}
 
-	public int getID_EMPLOI() {
-		return ID_EMPLOI;
+	public int getID_Planning() {
+		return ID_Planning;
 	}
 
-	public void setID_EMPLOI(int iD_EMPLOI) {
-		ID_EMPLOI = iD_EMPLOI;
+	public void setID_Planning(int iD_Planning) {
+		ID_Planning = iD_Planning;
 	}
 
 	public Enseignant getEnseignant() {
