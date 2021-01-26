@@ -16,7 +16,7 @@ public class SalleController {
 	}
 	public int add(Salle s) {
 	
-		int nb=Connexion.Maj("insert into Salle values("+s.getID_SALLE()+","+s.getNOM_SALLE()+","+s.getNUM_SALLE()+")");
+		int nb=Connexion.Maj("insert into Salle values("+s.getID_SALLE()+",'"+s.getNOM_SALLE()+"',"+s.getNUM_SALLE()+")");
 		return nb;
 	}	
 	public List<Salle> allSalle() {
@@ -51,7 +51,9 @@ public class SalleController {
 	}
 
 	public int updateSalle(Salle S) {
-		int nb = Connexion.Maj("UPDATE `Salle` SET `NOM_SALLE()` ="+S.getNOM_SALLE()+", `NUM_SALLE` = "+S.getNUM_SALLE()+" WHERE `Salle`.`ID_SALLE` = "+S.getID_SALLE()+"");
+		int nb = Connexion.Maj("UPDATE `Salle` SET `NOM_SALLE` ='"+S.getNOM_SALLE()+"', `NUM_SALLE` = "+S.getNUM_SALLE()+" WHERE `Salle`.`ID_SALLE` = "+S.getID_SALLE()+";");
 		return nb;
 	}
 }
+
+
