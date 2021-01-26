@@ -11,7 +11,7 @@ import java.sql.Statement;
 public class Connexion {
 	private static String dbhost = "jdbc:mysql://localhost:3306/projetjee";
 	private static String username = "root";
-	private static String password = "hello";
+	private static String password = "";
 	private static Connection conn = null;
 	private static Statement st = null;
 
@@ -24,7 +24,7 @@ public class Connexion {
 		}
 		return conn;
 	}
-
+ 
 	public static Connection getConnection() {
 		if (conn == null)
 			return createConnection();
@@ -43,6 +43,7 @@ public class Connexion {
 	{
 		int nb=0;
 		try {
+			st = getConnection().createStatement();
 			nb= st.executeUpdate(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -54,6 +55,7 @@ public class Connexion {
 	{
 		ResultSet rs=null;
 		try {
+			st = getConnection().createStatement();
 			rs = st.executeQuery(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
