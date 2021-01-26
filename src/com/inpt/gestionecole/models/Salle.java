@@ -3,19 +3,22 @@ package com.inpt.gestionecole.models;
 public class Salle {
 	private int ID_SALLE;
 	private String NOM_SALLE;
+	private int NUM_SALLE;
 
 	public Salle() {
-
+		
 	}
 
-	public Salle(int ID_SALLE) {
-		this.ID_SALLE = ID_SALLE;
+	public Salle(int iD_SALLE) {
+		
+		this.ID_SALLE = iD_SALLE;
 	}
 
-	public Salle(int iD_SALLE, String nOM_SALLE) {
+	public Salle(int iD_SALLE, String nOM_SALLE,int nUM_SALLE) {
 		super();
 		ID_SALLE = iD_SALLE;
 		NOM_SALLE = nOM_SALLE;
+		NUM_SALLE = nUM_SALLE;
 	}
 
 	public int getID_SALLE() {
@@ -32,6 +35,14 @@ public class Salle {
 
 	public void setNOM_SALLE(String nOM_SALLE) {
 		NOM_SALLE = nOM_SALLE;
+	}
+	
+	public int getNUM_SALLE() {
+		return NUM_SALLE;
+	}
+
+	public void setNUM_SALLE(int nUM_SALLE) {
+		NUM_SALLE = nUM_SALLE;
 	}
 
 }
