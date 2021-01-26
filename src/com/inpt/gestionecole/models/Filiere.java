@@ -5,7 +5,7 @@ public class Filiere {
 	String NOM_FILIERE;
 	String NOM_FORMATION;
 	String SEMESTRE; // the semester id
-	Enseignant CHEF_DE_FILIERE; // responsable de la filiere
+	int CHEF_DE_FILIERE; // responsable de la filiere
 
 	public Filiere() {
 		super();
@@ -16,7 +16,7 @@ public class Filiere {
 	}
 
 	public Filiere(int iD_FILIERE, String nOM_FILIERE, String nOM_FORMATION, String sEMESTRE,
-			Enseignant cHEF_DE_FILIERE) {
+			int cHEF_DE_FILIERE) {
 		super();
 		ID_FILIERE = iD_FILIERE;
 		NOM_FILIERE = nOM_FILIERE;
@@ -57,11 +57,11 @@ public class Filiere {
 		SEMESTRE = sEMESTRE;
 	}
 
-	public Enseignant getCHEF_DE_FILIERE() {
+	public int getCHEF_DE_FILIERE() {
 		return CHEF_DE_FILIERE;
 	}
 
-	public void setCHEF_DE_FILIERE(Enseignant cHEF_DE_FILIERE) {
+	public void setCHEF_DE_FILIERE(int cHEF_DE_FILIERE) {
 		CHEF_DE_FILIERE = cHEF_DE_FILIERE;
 	}
 
