@@ -19,7 +19,7 @@ public class MatiereController {
 		conn = Connexion.getConnection();
 	}
 	public int add(Matiere m) {
-		int nb=Connexion.Maj("insert into Matiere values("+m.getID_MATIERE()+",'"+m.getNOM_MATIERE()+"','"+m.getSEMESTRE_MATIERE()+"')");
+		int nb=Connexion.Maj("insert into Matiere values("+m.getID_MATIERE()+",'"+m.getNOM_MATIERE()+"','"+m.getSEMESTRE()+"')");
 		return nb;
 	}
 	public List<Matiere> allMatiere() {
@@ -53,7 +53,7 @@ public class MatiereController {
 		return nb;
 	}
 	public int updateMatiere(Matiere M) {
-		int nb = Connexion.Maj("UPDATE `Matiere` SET `NOM_MATIERE` ='"+M.getNOM_MATIERE()+"', `SEMESTRE_MATIERE` = '"+M.getSEMESTRE_MATIERE()+"' WHERE `Matiere`.`ID_MATIERE` ="+M.getID_MATIERE()+"");
+		int nb = Connexion.Maj("UPDATE `Matiere` SET `NOM_MATIERE` ='"+M.getNOM_MATIERE()+"', `SEMESTRE` = '"+M.getSEMESTRE()+"' WHERE `Matiere`.`ID_MATIERE` ="+M.getID_MATIERE()+"");
 		return nb;
 	}
 	// here add the methods that you will need
