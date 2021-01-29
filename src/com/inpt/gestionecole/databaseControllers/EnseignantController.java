@@ -35,7 +35,6 @@ public class EnseignantController implements UserController {
 	
 	}
 		
-	
 	public int add(User enseignant) {
 		
 		int nb=Connexion.Maj("insert into Enseignant values('"+enseignant.getUsername()+"','"+enseignant.getPassword()+"','"+enseignant.getNom()+"','"+enseignant.getPrenom()+"')");
@@ -65,6 +64,7 @@ public class EnseignantController implements UserController {
 			e.printStackTrace();
 		}
 		return E;
+		
 	}
 	
 	public int deleteEnseignant(int ID_ENSEIGNANT) {
