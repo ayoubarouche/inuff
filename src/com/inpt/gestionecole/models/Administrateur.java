@@ -13,9 +13,8 @@ public class Administrateur extends User {
 		this.ID_ADMINISTRATEUR = ID_ADMINISTRATEUR;
 	}
 
-	public Administrateur(int ID_ADMINISTRATEUR, String username, String password, String nom, String prenom,
-			String id) {
-		super(username, password, nom, prenom, id);
+	public Administrateur(int ID_ADMINISTRATEUR, String username, String password, String nom, String prenom) {
+		super(username, password, nom, prenom);
 		this.ID_ADMINISTRATEUR = ID_ADMINISTRATEUR;
 		// TODO Auto-generated constructor stub
 	}
