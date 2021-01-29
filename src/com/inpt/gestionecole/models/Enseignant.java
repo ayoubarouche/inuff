@@ -13,10 +13,10 @@ public class Enseignant extends User {
 		this.ID_ENSEIGNANT = iD_ENSEIGNANT;
 	}
 
-	public Enseignant(int ID_ENSEIGNANT, String username, String password, String nom, String prenom, String id) {
-		super(username, password, nom, prenom, id);
+	public Enseignant(int ID_ENSEIGNANT, String username, String password, String nom, String prenom) {
+		super(username, password, nom, prenom);
 		this.ID_ENSEIGNANT = ID_ENSEIGNANT;
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public int getID_ENSEIGNANT() {

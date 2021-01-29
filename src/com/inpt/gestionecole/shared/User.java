@@ -5,19 +5,19 @@ public abstract class User {
 	private String password;
 	private String nom;
 	private String prenom;
-	private String id;
+	
 
 	public User() {
 
 	}
 
-	public User(String username, String password, String nom, String prenom, String id) {
+	public User(String username, String password, String nom, String prenom) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.id = id;
+		
 	}
 
 	public String getUsername() {
@@ -50,14 +50,6 @@ public abstract class User {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 }
