@@ -19,9 +19,32 @@ public class EnseignantController implements UserController {
 	}
 
 	@Override
-	public void login(String username, String password) {
+	public  String login(String username, String password) {
+		String userName = username; 
+        String Password = password;
+        String userNameDB = "";
+        String passwordDB = "";
+        ResultSet all = null;
+        all = Connexion.select("select USERNAME, MDP_ENSEIGNANT from Enseignant;");
+        try {
+			while(all.next()) // Until next row is present otherwise it return false
+			{
+			 userNameDB = all.getString("USERNAME"); //fetch the values present in database
+			 passwordDB = all.getString("MDP_ENSEIGNANT");
+
+			  if(userName.equals(userNameDB) && Password.equals(passwordDB))
+			  {
+			     return "SUCCESS"; 
+			  }
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return "Failure"; 
 
 	}
+
 
 	@Override
 	public String register(User enseignant) {
@@ -73,7 +96,7 @@ public class EnseignantController implements UserController {
 	}
 
 	public int updateEnseignant(Enseignant E) {
-		int nb = Connexion.Maj("UPDATE `Enseignant` SET `username` ='"+E.getUsername()+"', `password` = '"+E.getPassword()+"' , `nom` = '"+E.getNom()+"' , `prenom` = '"+E.getPrenom()+"' WHERE `Enseignant`.`ID_ENSEIGNANT` = "+E.getID_ENSEIGNANT()+";");
+		int nb = Connexion.Maj("UPDATE `Enseignant` SET `USERNAME` ='"+E.getUsername()+"', `MDP_ENSEIGNANT` = '"+E.getPassword()+"' , `NOM_ENSEIGNANT` = '"+E.getNom()+"' , `PRENOM_ENSEIGNANT` = '"+E.getPrenom()+"' WHERE `Enseignant`.`ID_ENSEIGNANT` = "+E.getID_ENSEIGNANT()+";");
 		return nb;
 	}
 }
