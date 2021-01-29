@@ -5,7 +5,7 @@ import com.inpt.gestionecole.shared.User;
 public class Enseignant extends User {
 	int ID_ENSEIGNANT;
 
-	public Enseignant() {
+	public Enseignant()  {
 		super();
 	}
 

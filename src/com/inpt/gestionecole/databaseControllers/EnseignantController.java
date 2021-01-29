@@ -35,6 +35,7 @@ public class EnseignantController implements UserController {
 	
 	}
 		
+	
 	public int add(User enseignant) {
 		
 		int nb=Connexion.Maj("insert into Enseignant values('"+enseignant.getUsername()+"','"+enseignant.getPassword()+"','"+enseignant.getNom()+"','"+enseignant.getPrenom()+"')");
