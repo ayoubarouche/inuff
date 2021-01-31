@@ -2,8 +2,7 @@ package com.inpt.gestionecole.models;
 
 public class Planning {
 	private int ID_Planning;
-	Enseignant enseignant;
-	Matiere matiere;
+	AffectationMatiere affectation;
 	Filiere filiere;
 	Salle salle ;
 	Horaire horaire;
@@ -17,11 +16,10 @@ public class Planning {
 		ID_Planning = iD_Planning;
 	}
 
-	public Planning(int iD_Planning, Enseignant enseignant, Matiere matiere, Filiere filiere,Salle salle, Horaire horaire) {
+	public Planning(int iD_Planning, AffectationMatiere affectation, Filiere filiere,Salle salle, Horaire horaire) {
 		super();
 		ID_Planning = iD_Planning;
-		this.enseignant = enseignant;
-		this.matiere = matiere;
+		this.affectation = affectation ; 
 		this.filiere = filiere;
 		this.horaire = horaire;
 		this.salle = salle; 
@@ -43,20 +41,12 @@ public class Planning {
 		ID_Planning = iD_Planning;
 	}
 
-	public Enseignant getEnseignant() {
-		return enseignant;
+	public AffectationMatiere getAffectation() {
+		return affectation;
 	}
 
-	public void setEnseignant(Enseignant enseignant) {
-		this.enseignant = enseignant;
-	}
-
-	public Matiere getMatiere() {
-		return matiere;
-	}
-
-	public void setMatiere(Matiere matiere) {
-		this.matiere = matiere;
+	public void setAffectation(AffectationMatiere affectation) {
+		this.affectation = affectation;
 	}
 
 	public Filiere getFiliere() {
