@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Login Form</title>
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/Login.css">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
   </head>
@@ -13,7 +15,7 @@
   <button class="switch-button-case left active-case" >Administrateur</button>
   <button class="switch-button-case right" >Enseignant</button>
 </div>
-    <form class="container" action="" method="POST">
+    <form class="container" action="login" method="POST">
       <h1>LOGIN</h1>
       <input type="hidden" name="Admin" id="Admin" value="True" />
       <input type="text" name="Username" placeholder="Username">

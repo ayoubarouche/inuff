@@ -23,13 +23,13 @@ public class AdministrateurController implements UserController {
 	}
 
 	@Override
-	public  String login(String username, String password) {
+	public  Administrateur login(String username, String password) {
 		String userName = username; 
         String Password = password;
         String userNameDB = "";
         String passwordDB = "";
         ResultSet all = null;
-        all = Connexion.select("select username, mdp_admin from administrateur;");
+        all = Connexion.select("select * from Administrateur;");
         try {
 			while(all.next())
 			{
@@ -38,13 +38,15 @@ public class AdministrateurController implements UserController {
 
 			  if(userName.equals(userNameDB) && Password.equals(passwordDB))
 			  {
-			     return "SUCCESS"; 
+				  Administrateur Admin = null;
+				  Admin = new Administrateur(all.getInt(1),all.getString(2), all.getString(3),all.getString(4),all.getString(5));
+			  return Admin;
 			  }
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-        return "Failure"; 
+        return null; 
 
 	}
 

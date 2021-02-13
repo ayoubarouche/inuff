@@ -9,16 +9,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connexion {
-	private static String dbhost = "jdbc:mysql://localhost:3306/projetjee";
+	private static String dbhost = "jdbc:mysql://localhost:3306/test";
 	private static String username = "root";
-	private static String password = "";
+	private static String password = "hello";
 	private static Connection conn = null;
 	private static Statement st = null;
 
 	private static Connection createConnection() {
 		try {
+			  Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbhost, username, password);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("Cannot create database connection");
 			e.printStackTrace();
 		}

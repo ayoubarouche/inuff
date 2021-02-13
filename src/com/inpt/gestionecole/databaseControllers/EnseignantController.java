@@ -19,13 +19,13 @@ public class EnseignantController implements UserController {
 	}
 
 	@Override
-	public  String login(String username, String password) {
+	public  Enseignant login(String username, String password) {
 		String userName = username; 
         String Password = password;
         String userNameDB = "";
         String passwordDB = "";
         ResultSet all = null;
-        all = Connexion.select("select USERNAME, MDP_ENSEIGNANT from Enseignant;");
+        all = Connexion.select("select * from Enseignant;");
         try {
 			while(all.next()) // Until next row is present otherwise it return false
 			{
@@ -34,14 +34,16 @@ public class EnseignantController implements UserController {
 
 			  if(userName.equals(userNameDB) && Password.equals(passwordDB))
 			  {
-			     return "SUCCESS"; 
+				  Enseignant E ;
+				  E = new Enseignant(all.getInt(1),all.getString(2),all.getString(3),all.getString(4),all.getString(5));
+				  return E;
 			  }
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return "Failure"; 
+        return null; 
 
 	}
 

@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+  
+    %>
+    <%@ page import="com.inpt.gestionecole.models.Administrateur"%>
+    
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -6,8 +12,8 @@
     <meta name="keywords" content="INPT, bienvenue dans votre département digitale">
     <meta name="description" content="">
     <title>home_admin</title>
-    <link rel="stylesheet" href="home_admin.css" media="screen">
-    <script class="u-script" type="text/javascript" src="home_admin.js" defer=""></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home_admin.css" media="screen">
+    <script class="u-script" type="text/javascript" src="${pageContext.request.contextPath}/js/home_admin.js" defer=""></script>
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Titillium+Web:200,200i,300,300i,400,400i,600,600i,700,700i,900">
     <meta name="theme-color" content="#478ac9">
@@ -90,7 +96,7 @@
             </nav>
           </div>
         </div>
-        <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-2">bienvenue dans votre département digitale</h1>
+        <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-2">bienvenue <%= ((Administrateur)session.getAttribute("admin")).getNom() %> dans votre département digitale</h1>
       </div>
     </section>
     <section class="u-align-left u-clearfix u-grey-10 u-typography-Normal--Introduction u-section-2" src="" id="carousel_d0d2">
@@ -159,7 +165,7 @@
     
     
     <footer class="u-align-center u-clearfix u-custom-color-1 u-footer u-footer" id="sec-835c"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">copyright © 2021</p>
+        <p class="u-small-text u-text u-text-variant u-text-1">copyright Â© 2021</p>
       </div></footer>
   </body>
 </html>
