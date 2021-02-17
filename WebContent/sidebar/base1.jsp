@@ -3,7 +3,7 @@
 		<ul>
 			<div>
 			<li class="iconn">
-				<a href="#">
+				<a href="./home_admin.jsp">
 					<span class="icon" id="con"></span>
 					<h1 class="logo" id="h">INPT</h1>
 				</a>
@@ -40,13 +40,13 @@
 				</a>
 			</li>
 			<li class="ico" id="g">
-				<a href="#">
+				<a href="./home_admin.jsp">
 					<span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
 					<span class="title">Home</span>
 				</a>
 			</li>
 			<li class="ico">
-				<a href="#">
+				<a href="../logout">
 					<span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
 					<span class="title">log out</span>
 				</a>
