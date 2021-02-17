@@ -5,6 +5,7 @@
     <%@ page import="com.inpt.gestionecole.models.Administrateur"%>
     
 <!DOCTYPE html>
+
 <html style="font-size: 16px;">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
   <body class="u-body">
     <section class="u-clearfix u-gradient u-uploaded-video u-section-1" id="sec-3aa0">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-align-center-lg u-align-center-xl u-align-left-md u-align-left-sm u-align-left-xs u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-white u-group-1">
+        <div  style="width: 1010px;" class="u-align-center-lg u-align-center-xl u-align-left-md u-align-left-sm u-align-left-xs u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-white u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h1 class="u-text u-text-custom-color-1 u-text-default u-text-1">INPT</h1>
             <nav class="u-align-right u-menu u-menu-dropdown u-menu-open-right u-menu-1" data-submenu-level="on-click">
@@ -34,60 +35,55 @@
                 </a>
               </div>
               <div class="u-custom-menu u-nav-container">
-                <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Enseignants</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
+                <ul class="u-nav u-spacing-20 u-unstyled u-nav-1">
+     <li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Administrateurs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Supprimer</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Enseignants</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
+</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Matières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Supprimer</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Filières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Supprimer</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Salles</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Supprimer</a>
 </li></ul>
 </div>
+</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Logout</a>
 </li></ul>
               </div>
               <div class="u-custom-menu u-nav-container-collapse">
                 <div class="u-container-style u-inner-container-layout u-sidenav">
                   <div class="u-sidenav-overflow">
                     <div class="u-menu-close u-menu-close-1"></div>
-                    <ul class="u-align-center u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-1 u-text-hover-custom-color-2 u-unstyled u-white u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Enseignants</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
+                    <ul class="u-align-center u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-1 u-text-hover-custom-color-2 u-unstyled u-white u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Administrateurs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Supprimer</a>
+</li></ul>
+</div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Enseignants</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
+</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Matières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Supprimer</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Filières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Supprimer</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Salles</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
 </li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Modifier</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Supprimer</a>
 </li></ul>
 </div>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Logout</a>
 </li></ul>
                   </div>
                 </div>
@@ -96,12 +92,19 @@
             </nav>
           </div>
         </div>
-        <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-2">bienvenue <%= ((Administrateur)session.getAttribute("admin")).getNom() %> dans votre département digitale</h1>
+        <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-2">bienvenue dans votre département digitale</h1>
       </div>
     </section>
     <section class="u-align-left u-clearfix u-grey-10 u-typography-Normal--Introduction u-section-2" src="" id="carousel_d0d2">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-expanded-width u-list u-repeater u-list-1">
+	<div class="u-align-center u-container-style u-custom-color-3 u-list-item u-radius-31 u-repeater-item u-shape-round " data-href="https://page.com">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-align-center u-custom-color-1 u-icon u-icon-circle u-spacing-15 u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16.377 16.377" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-8768"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 16.377 16.377" x="0px" y="0px" id="svg-8768" style="enable-background:new 0 0 16.377 16.377;"><g><g><path style="fill:currentColor;" d="M4.331,5.043c0.042,0.256,0.141,0.417,0.238,0.52c0.231,1.54,1.521,2.97,2.698,2.97    c1.373,0,2.623-1.547,2.865-2.967c0.098-0.101,0.199-0.264,0.242-0.522c0.078-0.289,0.18-0.791,0.002-1.025    c-0.01-0.012-0.02-0.023-0.029-0.034c0.166-0.606,0.377-1.858-0.375-2.711C9.906,1.188,9.486,0.686,8.585,0.42L8.158,0.271    C7.45,0.052,7.004,0.004,6.986,0.001c-0.031-0.003-0.065,0-0.096,0.008C6.865,0.016,6.782,0.038,6.716,0.03    C6.547,0.006,6.293,0.093,6.248,0.11c-0.06,0.023-1.43,0.573-1.846,1.849C4.363,2.063,4.197,2.605,4.418,3.936    C4.385,3.958,4.355,3.985,4.33,4.019C4.152,4.253,4.252,4.754,4.331,5.043z M4.869,2.141C4.872,2.135,4.874,2.128,4.877,2.12    c0.339-1.052,1.541-1.538,1.549-1.542c0.055-0.021,0.162-0.051,0.219-0.051c0.118,0.016,0.254-0.005,0.328-0.022    C7.094,0.522,7.47,0.583,8.001,0.747l0.432,0.148c0.801,0.237,1.141,0.681,1.143,0.684c0.006,0.007,0.012,0.013,0.016,0.019    c0.695,0.783,0.338,2.079,0.211,2.457C9.774,4.144,9.795,4.242,9.86,4.308c0.033,0.034,0.072,0.057,0.115,0.069    C9.977,4.5,9.942,4.725,9.887,4.922C9.885,4.931,9.883,4.941,9.881,4.95C9.86,5.089,9.813,5.19,9.75,5.236    c-0.053,0.04-0.09,0.101-0.1,0.167c-0.166,1.19-1.268,2.629-2.382,2.629c-0.938,0-2.055-1.325-2.213-2.624    C5.047,5.34,5.012,5.279,4.956,5.238c-0.063-0.048-0.11-0.15-0.131-0.287c-0.001-0.01-0.003-0.02-0.006-0.029    C4.768,4.739,4.735,4.53,4.732,4.404c0.047-0.005,0.094-0.021,0.134-0.053c0.074-0.058,0.11-0.152,0.092-0.245    C4.683,2.662,4.869,2.141,4.869,2.141z"></path><path style="fill:currentColor;" d="M12.224,9.363c-0.738-0.487-1.855-0.84-1.855-0.84C9.248,8.127,9.24,7.733,9.24,7.733    c-2.203,4.344-3.876,0.014-3.876,0.014C5.21,8.333,2.941,9.021,2.941,9.021C2.278,9.275,1.998,9.657,1.998,9.657    c-0.98,1.454-1.096,4.689-1.096,4.689c0.013,0.739,0.332,0.816,0.332,0.816c2.254,1.006,5.792,1.185,5.792,1.185    c0.985,0.021,1.894-0.047,2.701-0.154c-0.773-0.723-1.262-1.748-1.262-2.887C8.464,11.192,10.134,9.465,12.224,9.363z"></path><path style="fill:currentColor;" d="M12.269,9.963c-1.768,0-3.207,1.438-3.207,3.207c0,1.771,1.439,3.207,3.207,3.207    c1.77,0,3.207-1.437,3.207-3.207C15.476,11.402,14.038,9.963,12.269,9.963z M12.058,14.747c-0.068,0.067-0.178,0.067-0.246,0    l-1.543-1.555c-0.068-0.066-0.068-0.178,0-0.245l0.369-0.369c0.068-0.067,0.178-0.067,0.246,0l1.053,1.061l2.045-2.044    c0.066-0.068,0.178-0.068,0.246,0l0.367,0.367c0.068,0.068,0.068,0.18,0,0.248L12.058,14.747z"></path>
+</g>
+</g></svg></span>
+              <h3 class="u-custom-font u-font-titillium-Web u-text u-text-2">Administrateurs</h3>
+            </div>
+          </div>
           <div class="u-align-center u-container-style u-custom-color-3 u-list-item u-radius-31 u-repeater-item u-shape-round" data-href="https://page.com">
             <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><span class="u-align-center u-custom-color-1 u-icon u-icon-circle u-spacing-15 u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55 55" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cd07"></use></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 55 55" x="0px" y="0px" id="svg-cd07" style="enable-background:new 0 0 55 55;"><path d="M55,27.5C55,12.337,42.663,0,27.5,0S0,12.337,0,27.5c0,8.009,3.444,15.228,8.926,20.258l-0.026,0.023l0.892,0.752
 	c0.058,0.049,0.121,0.089,0.179,0.137c0.474,0.393,0.965,0.766,1.465,1.127c0.162,0.117,0.324,0.234,0.489,0.348

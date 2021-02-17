@@ -93,6 +93,27 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow: visible; }
+/*.fr-view[dir="rtl"] blockquote {
+  border-left: none;
+  border-right: solid 2px #5E35B1;
+  margin-right: 0;
+  padding-right: 5px;
+  padding-left: 0; }
+  .fr-view[dir="rtl"] blockquote blockquote {
+    border-color: #00BCD4; }
+    .fr-view[dir="rtl"] blockquote blockquote blockquote {
+      border-color: #43A047; }
+.fr-view blockquote {
+  border-left: solid 2px #5E35B1;
+  margin-left: 0;
+  padding-left: 5px;
+  color: #5E35B1; }
+  .fr-view blockquote blockquote {
+    border-color: #00BCD4;
+    color: #00BCD4; }
+    .fr-view blockquote blockquote blockquote {
+      border-color: #43A047;
+      color: #43A047; }*/
   .fr-view span.fr-emoticon {
     font-weight: normal;
     font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
@@ -339,7 +360,15 @@ span.fr-img-caption.fr-view {
       float: right;
       margin: 5px 0 5px 5px;
       max-width: calc(100% - 5px); }
-    @charset "UTF-8";
+/*begin-commonstyles animate*/@charset "UTF-8";
+
+/*!
+ * animate.css -https://daneden.github.io/animate.css/
+ * Version - 3.7.2
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2019 Daniel Eden
+ */
 
 @-webkit-keyframes bounce {
   from,
@@ -31866,12 +31895,13 @@ a.u-link.u-text-hover-grey-90:hover {
 
 .u-section-2 .u-list-1 {
   min-height: 290px;
-  grid-template-columns: calc(25% - 23px) calc(25% - 23px) calc(25% - 23px) calc(25% - 23px);
+  grid-template-columns: calc(20% - 3px) calc(20% - 3px) calc(20% - 3px) calc(20% - 3px) calc(20% - 3px);
   grid-template-rows: auto;
   grid-gap: 30px 30px;
   height: auto;
+  left : -3em;
   margin-top: -189px;
-  margin-bottom: 60px;
+  margin-bottom: 90px;
 }
 
 .u-section-2 .u-container-layout-1 {
@@ -31888,7 +31918,8 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-section-2 .u-text-1 {
   font-weight: 700;
   line-height: 1;
-  margin: 25px 0 0;
+  font-size: 1.46rem;
+  margin: 45px 0 0;
 }
 
 .u-section-2 .u-list-item-2 {
@@ -31909,8 +31940,8 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-section-2 .u-text-2 {
   font-weight: 700;
   line-height: 1;
-  font-size: 1.875rem;
-  margin: 25px 0 0;
+  font-size: 1.46rem;
+  margin: 45px 0 0;
 }
 
 .u-section-2 .u-container-layout-3 {
@@ -31927,8 +31958,8 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-section-2 .u-text-3 {
   font-weight: 700;
   line-height: 1;
-  font-size: 1.875rem;
-  margin: 25px 0 0;
+  font-size: 1.46rem;
+  margin: 45px 0 0;
 }
 
 .u-section-2 .u-container-layout-4 {
@@ -31945,8 +31976,8 @@ a.u-link.u-text-hover-grey-90:hover {
 .u-section-2 .u-text-4 {
   font-weight: 700;
   line-height: 1;
-  font-size: 1.875rem;
-  margin: 25px 0 0;
+  font-size: 1.46rem;
+  margin: 45px 0 0;
 }
 
 @media (max-width: 1199px) {
@@ -31956,7 +31987,7 @@ a.u-link.u-text-hover-grey-90:hover {
 
   .u-section-2 .u-list-1 {
     min-height: 319px;
-    grid-template-columns: calc(25% - 18.75px) calc(25% - 18.75px) calc(25% - 18.75px) calc(25% - 18.75px);
+    grid-template-columns: calc(20% - 18.75px) calc(20% - 18.75px) calc(20% - 18.75px) calc(20% - 18.75px) calc(20% - 18.75px);
     grid-gap: 25px 25px;
     margin-top: -208px;
   }
@@ -31991,9 +32022,8 @@ a.u-link.u-text-hover-grey-90:hover {
 
   .u-section-2 .u-container-layout-3 {
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 20px; 
   }
-
   .u-section-2 .u-container-layout-4 {
     padding-left: 20px;
     padding-right: 20px;
