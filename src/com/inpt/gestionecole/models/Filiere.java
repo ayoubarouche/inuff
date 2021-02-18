@@ -1,10 +1,25 @@
 package com.inpt.gestionecole.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Filiere")
 public class Filiere {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	int ID_FILIERE;
+	@Column
 	String NOM_FILIERE;
+	@Column
 	String NOM_FORMATION;
-	String SEMESTRE; // the semester id
+	@Column
+	String SEMESTRE;
+	@Column // the semester id
 	int CHEF_DE_FILIERE; // responsable de la filiere
 
 	public Filiere() {

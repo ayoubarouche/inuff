@@ -6,33 +6,41 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.inpt.gestionecole.config.Connexion;
+import com.inpt.gestionecole.config.HibernateSessionFactory;
+import com.inpt.gestionecole.databaseControllers.PlanningController;
+import com.inpt.gestionecole.models.AffectationMatiere;
+import com.inpt.gestionecole.models.Filiere;
+import com.inpt.gestionecole.models.Horaire;
+import com.inpt.gestionecole.models.Planning;
+import com.inpt.gestionecole.models.Salle;
 import com.inpt.gestionecole.models.TestModelExemple;
+import java.util.List;
 
+import org.hibernate.Session;
 // it's only a class for testing the database exemples here an exemple of how to do it
 public class TestExemple {
+static Session session ;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		TestModelExemple student = new TestModelExemple();
-		Connection conn = Connexion.getConnection();
-		String sql_select = "Select * From test";
+				// TODO Auto-generated method stub
 		try {
-			Statement stmt = conn.createStatement();
-			ResultSet results = stmt.executeQuery(sql_select);
-			while (results.next()) {
-
-				TestModelExemple stdObject = new TestModelExemple();
-				stdObject.setId(Integer.valueOf(results.getString("id")));
-				stdObject.setName(results.getString("name"));
-				System.out.println(
-						"the student is => id is : " + stdObject.getId() + " and the name is : " + stdObject.getName());
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			Filiere filiere = new Filiere( 2,"iccn","hacking and security","3",1);
+			session.save(filiere);
+			session.getTransaction().commit();
+		}catch (Exception e) {
+			// TODO: handle exception
+			if( null != session.getTransaction()) {
+                System.out.println("\n.......Transaction Is Being Rolled Back.......");
+                session.getTransaction().rollback();
+            }
+		} finally {
+			 if(session != null) {
+	                session.close();
+	            }
+		}	
+			
 	}
-
+	
 }
