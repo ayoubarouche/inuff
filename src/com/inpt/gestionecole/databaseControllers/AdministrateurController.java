@@ -6,106 +6,147 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.inpt.gestionecole.config.Connexion;
+import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.Administrateur;
 import com.inpt.gestionecole.shared.User;
 import com.inpt.gestionecole.shared.UserController;
 
-public class AdministrateurController implements UserController {
+public class AdministrateurController {
 	Connection conn = null;
-
+	static Session session;
 	// here add the atributes that you will need view the
 	// com.inpt.gestionecole.tests classes for exemple
-	
+
 	public AdministrateurController() {
 		// TODO Auto-generated constructor stub
 		conn = Connexion.getConnection();
 	}
 
-	@Override
-	public  Administrateur login(String username, String password) {
-		String userName = username; 
-        String Password = password;
-        String userNameDB = "";
-        String passwordDB = "";
-        ResultSet all = null;
-        all = Connexion.select("select * from Administrateur;");
-        try {
-			while(all.next())
-			{
-			 userNameDB = all.getString("username");
-			 passwordDB = all.getString("mdp_admin");
+	public Administrateur login(String username, String password) {
 
-			  if(userName.equals(userNameDB) && Password.equals(passwordDB))
-			  {
-				  Administrateur Admin = null;
-				  Admin = new Administrateur(all.getInt(1),all.getString(2), all.getString(3),all.getString(4),all.getString(5));
-			  return Admin;
-			  }
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Administrateur where USERNAME=:username and MDP_ADMIN=:password");
+		query.setParameter("username", username);
+		query.setParameter("password", password);
+		Administrateur admin = (Administrateur) query.uniqueResult();
+		session.close();
+		return admin;
+	}
+
+	public boolean register(Administrateur Admin) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.save(Admin);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-        return null; 
-
-	}
-
-	@Override
-	public String register(User admin) {
-		int nb =0;
-		nb = add(admin);
-		 if (nb!=0) {  
-             return "SUCCESS"; 
-         }     
-         return "failure";  
-     
-	}
-  
-	public int add(User Admin) {
-		int nb=Connexion.Maj("insert into Administrateur values(null,'"+Admin.getUsername()+"','"+Admin.getNom()+
-				"','"+Admin.getPrenom()+"','"+Admin.getPassword()+"');");
-		return nb;
-		
-	}
-	public List<Administrateur> allAdministrateur(){
-		List<Administrateur> Administrateur= new ArrayList<Administrateur>();
-	    ResultSet rs = Connexion.select("select * from Administrateur");
-        try {
-			while (rs.next()){
-				Administrateur Admin= new Administrateur(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5));
-				Administrateur.add(Admin);
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		return Administrateur;
-		
+		return false;
+	}
+
+	public List<Administrateur> allAdministrateur() {
+		List<Administrateur> Administrateurs = null;
+		/*
+		 * ResultSet rs = Connexion.select("select * from Administrateur"); try { while
+		 * (rs.next()) { Administrateur Admin = new Administrateur(rs.getInt(1),
+		 * rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+		 * Administrateur.add(Admin); } } catch (SQLException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); } return Administrateur;
+		 */
+
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Administrateur");
+		Administrateurs = query.list();
+		session.close();
+		return Administrateurs;
 	}
 
 	public Administrateur findAdministrateurbyid(int id_Admin) {
-		Administrateur Admin = null;
-		ResultSet rs = Connexion.select("select * from Administrateur where ID_ADMIN="+id_Admin);
+		Administrateur admin = null;
 		try {
-			if(rs.next()){
-				Admin = new Administrateur(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+
+			admin = (Administrateur) session.get(Administrateur.class, id_Admin);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			session.close();
 		}
-		return Admin;
+		session.close();
+		return admin;
 	}
-	
-	public int updateAdministrateur(Administrateur Admin) {
-		int nb = Connexion.Maj("UPDATE `Administrateur` SET `USERNAME` ='"+Admin.getUsername()+"', `NOM_ADMIN` = '"
-				+Admin.getNom()+"', `PRENOM_ADMIN` ='"+Admin.getPrenom()+"', `MDP_ADMIN` = '"
-				+Admin.getPassword()+"' WHERE `filiere`.`ID_ADMIN` = "+Admin.getID_ADMINISTRATEUR()+";");
-	    return nb;
+
+	public boolean updateAdministrateur(Administrateur Admin) {
+		/*
+		 * int nb =
+		 * Connexion.Maj("UPDATE `Administrateur` SET `USERNAME` ='"+Admin.getUsername()
+		 * +"', `NOM_ADMIN` = '"
+		 * +Admin.getNom()+"', `PRENOM_ADMIN` ='"+Admin.getPrenom()+"', `MDP_ADMIN` = '"
+		 * +Admin.getPassword()+"' WHERE `filiere`.`ID_ADMIN` = "+Admin.
+		 * getID_ADMINISTRATEUR()+";"); return nb;
+		 */
+
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.update(Admin);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
-	
-	public int deleteAdministrateur(int id_Admin) {
-		int nb = Connexion.Maj("delete from Administrateur where ID_ADMIN="+id_Admin);
-		return nb;
+
+	public boolean deleteAdministrateur(Administrateur admin) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.delete(admin);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

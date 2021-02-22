@@ -16,5 +16,8 @@
  
         <!-- Mapping With Model Class Containing Annotations -->
         <mapping class="com.inpt.gestionecole.models.Filiere" />
+  	    <mapping class="com.inpt.gestionecole.models.Administrateur"/>
+	    <mapping class="com.inpt.gestionecole.models.Enseignant"/>
+	    <mapping class="com.inpt.gestionecole.models.AffectationMatiere"/>
     </session-factory>
 </hibernate-configuration>

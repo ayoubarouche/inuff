@@ -7,7 +7,9 @@ import java.sql.Statement;
 
 import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
+import com.inpt.gestionecole.databaseControllers.AdministrateurController;
 import com.inpt.gestionecole.databaseControllers.PlanningController;
+import com.inpt.gestionecole.models.Administrateur;
 import com.inpt.gestionecole.models.AffectationMatiere;
 import com.inpt.gestionecole.models.Filiere;
 import com.inpt.gestionecole.models.Horaire;
@@ -23,7 +25,7 @@ static Session session ;
 
 	public static void main(String[] args) {
 				// TODO Auto-generated method stub
-		try {
+	/*	try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			Filiere filiere = new Filiere( 2,"iccn","hacking and security","3",1);
@@ -40,7 +42,12 @@ static Session session ;
 	                session.close();
 	            }
 		}	
-			
+		*/
+		AdministrateurController adminct = new AdministrateurController();
+	Administrateur admin = 	adminct.login("aroucheayoub", "hello");
+		if(admin != null) {
+			System.out.println("hello : "+admin.getNom());
+		}
 	}
 	
 }
