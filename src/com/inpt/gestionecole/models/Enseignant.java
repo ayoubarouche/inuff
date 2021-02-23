@@ -1,15 +1,18 @@
 package com.inpt.gestionecole.models;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.inpt.gestionecole.shared.User;
-
+@Entity  
+@Table(name="Enseignant")  
 public class Enseignant  {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "ID_ENSEIGNANT")
 	private int ID_ENSEIGNANT;
 	@Column(name = "USERNAME")

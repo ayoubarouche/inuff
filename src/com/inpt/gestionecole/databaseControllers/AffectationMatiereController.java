@@ -6,8 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.inpt.gestionecole.config.Connexion;
+import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.AffectationMatiere;
+import com.inpt.gestionecole.models.Enseignant;
 
 public class AffectationMatiereController {
 	Connection conn;
@@ -15,50 +20,106 @@ public class AffectationMatiereController {
 	// com.inpt.gestionecole.tests classes for exemple
 	EnseignantController enseignantcontroller = new EnseignantController();  
 	MatiereController matierecontroller = new MatiereController();
-	
+	Session session = null;
 	public AffectationMatiereController() {
 		conn = Connexion.getConnection();
 	}
-	public int add(AffectationMatiere a) {
-		int nb=Connexion.Maj("insert into Affectation values("+a.getID_AFFECTATION_MATIERE()+",'"+a.getEnseignant().getID_ENSEIGNANT()+"','"+a.getMatiere().getID_MATIERE()+"')");
-		return nb;
+	public boolean add(AffectationMatiere am) {
+		
+		try {
+		
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.save(am);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
+	//	int nb=Connexion.Maj("insert into Affectation values("+a.getID_AFFECTATION_MATIERE()+",'"+a.getEnseignant().getID_ENSEIGNANT()+"','"+a.getMatiere().getID_MATIERE()+"')");
+		//return nb;
 	}
 	public List<AffectationMatiere> allAffectationMatiere() {
-		List<AffectationMatiere> affectationmatiere = new ArrayList<AffectationMatiere>();
-	    ResultSet rs = Connexion.select("select * from Affectation");
-	    
-        try {
-			while (rs.next()){
-		
-				AffectationMatiere A= new AffectationMatiere(rs.getInt(1),enseignantcontroller.findEnseignantbyid(rs.getInt(2)),matierecontroller.findMatierebyid(rs.getInt(3)));
-				affectationmatiere.add(A);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return affectationmatiere;
+		List<AffectationMatiere> affectationmatieres = new ArrayList<AffectationMatiere>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Affectation");
+		affectationmatieres = query.list();
+		session.close();
+		return affectationmatieres;
 	}
 	
 	public AffectationMatiere findAffectationMatierebyid(int ID_AFFECTATION_MATIERE) {
 		AffectationMatiere A=null;
-		ResultSet rs = Connexion.select("select * from Affectation where ID_AFFECTATION="+ID_AFFECTATION_MATIERE);
 		try {
-			if(rs.next()){
-			
-			A = new AffectationMatiere(rs.getInt(1), enseignantcontroller.findEnseignantbyid(rs.getInt(2)),matierecontroller.findMatierebyid(rs.getInt(3)));
-			}
-		} catch (SQLException e) {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+
+			A = (AffectationMatiere) session.get(AffectationMatiere.class, ID_AFFECTATION_MATIERE);
+
+		} catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
+			session.close();
 		}
+		
 		return A;
+
 	}
-	public int deleteAffectationMatiere(int ID_AFFECTATION_MATIERE) {
-		int nb = Connexion.Maj("delete from Affectation where ID_AFFECTATION="+ID_AFFECTATION_MATIERE);
-		return nb;
+	public boolean deleteAffectationMatiere(AffectationMatiere affectationmatiere) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.delete(affectationmatiere);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
-	public int updateMatiere(AffectationMatiere A) {
-		int nb = Connexion.Maj("UPDATE `Affectation` SET `ID_ENSEIGNANT` ='"+A.getEnseignant().getID_ENSEIGNANT()+"', `ID_MATIERE` = '"+A.getMatiere().getID_MATIERE()+"' WHERE `Affectation`.`ID_AFFECTATION` ="+A.getID_AFFECTATION_MATIERE()+"");
-		return nb;
+	public boolean updateMatiere(AffectationMatiere A) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.update(A);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
 	// here the methods that we will need
 }

@@ -1,8 +1,21 @@
 package com.inpt.gestionecole.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity  
+@Table(name="Matiere")  
 public class Matiere {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "ID_MATIERE")
 	int ID_MATIERE;
+	@Column(name = "NOM_MATIERE")
 	private String NOM_MATIERE;
+	@Column(name = "SEMESTRE")
 	private String SEMESTRE;
 
 	public Matiere() {

@@ -18,6 +18,11 @@
         <mapping class="com.inpt.gestionecole.models.Filiere" />
   	    <mapping class="com.inpt.gestionecole.models.Administrateur"/>
 	    <mapping class="com.inpt.gestionecole.models.Enseignant"/>
+   	<mapping class="com.inpt.gestionecole.models.Matiere"/>
 	    <mapping class="com.inpt.gestionecole.models.AffectationMatiere"/>
+ 
+    	<mapping class="com.inpt.gestionecole.models.Planning"/>
+    	<mapping class="com.inpt.gestionecole.models.Salle"/>
+    	<mapping class="com.inpt.gestionecole.models.Horaire"/>
     </session-factory>
 </hibernate-configuration>
