@@ -127,3 +127,6 @@ td.text-right {
 .action{width: 40px;}
 a.delete{color:red;}
 a.edit{color:blue;}
+a.upload{color:green;}
+td.text-left{text-align: center;}
+th.text-left{text-align: center;}

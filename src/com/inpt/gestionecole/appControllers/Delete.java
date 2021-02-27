@@ -37,22 +37,22 @@ public class Delete extends HttpServlet {
 		switch(table) {
 		  case "enseignants":
 			EnseignantController ensController = new EnseignantController();
-			ensController.deleteEnseignant(id);
+			ensController.deleteEnseignant(ensController.findEnseignantbyid(id));
 			response.sendRedirect(request.getContextPath()+"/administrateur/enseignants");
 		    break;
 		  case "salles":
 			SalleController sallesController = new SalleController();
-			sallesController.deleteSalle(id);
+			sallesController.deleteSalle(sallesController.findSallebyid(id));
 			response.sendRedirect(request.getContextPath()+"/administrateur/salles");
 		    break;
 		  case "matieres":
 			 MatiereController matController = new MatiereController();
-			 matController.deleteMatiere(id);
+			 matController.deleteMatiere(matController.findMatierebyid(id));
 			 response.sendRedirect(request.getContextPath()+"/administrateur/matieres");
 			 break;
 		  case "filieres":
 			 FiliereController filController = new FiliereController();
-			 filController.deleteFiliere(id);
+			 filController.deleteFiliere(filController.findFilierebyid(id));
 			 response.sendRedirect(request.getContextPath()+"/administrateur/filieres");
 			 break;
 		    

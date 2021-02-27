@@ -28,6 +28,7 @@
 		<th class="text-left">Prenom</th>
 		<th class="text-left">Username</th>
 		<th class="text-left">Password</th>
+		<th class="text-left">Emploi</th>
 		<th class="text-left"> <p class="action" ></p></th>
 		
 		
@@ -43,6 +44,8 @@
 			<td class="text-left">${ele.getPrenom()}</td>
 			<td class="text-left">${ele.getUsername()}</td>
 			<td class="text-left">${ele.getPassword()}</td>
+			<td class="text-left"><a class="upload" href="upload?id=${ele.getID_ENSEIGNANT()}"  type="button"><i class="fa fa-calendar fa-fw"></i></a></td>
+
 			<td class="text-left"><a class="edit" href="modify?id=${ele.getID_ENSEIGNANT()}&table=enseignants"  type="button"><i class="fa fa-pencil fa-fw"></i></a><a class="delete" href="delete?id=${ele.getID_ENSEIGNANT()}&table=enseignants"  type="button"><i class="fa fa-trash-o fa-fw"></i></a></td>
 			
 			
