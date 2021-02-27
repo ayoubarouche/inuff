@@ -56,7 +56,7 @@ public List<Filiere> allFiliere() {
 	return filieres;
 }
 	
-	public Filiere findMatierebyid(int ID_FILIERE) {
+	public Filiere findFilierebyid(int ID_FILIERE) {
 		Filiere F=null;
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();

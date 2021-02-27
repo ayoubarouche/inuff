@@ -11,7 +11,6 @@ import org.hibernate.Session;
 
 import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
-import com.inpt.gestionecole.models.AffectationMatiere;
 import com.inpt.gestionecole.models.Matiere;
 
 

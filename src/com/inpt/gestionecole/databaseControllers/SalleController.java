@@ -46,7 +46,7 @@ public boolean add(Salle s) {
 		return false;
 	}
 	
-public List<Salle> allMatiere() {
+public List<Salle> allSalle() {
 	List<Salle> salles = new ArrayList<Salle>();
 	session = HibernateSessionFactory.buildSessionFactory().openSession();
 	Query query = session.createQuery("from Salle");
@@ -55,7 +55,7 @@ public List<Salle> allMatiere() {
 	return salles;
 }
 	
-	public Salle findMatierebyid(int ID_SALLE) {
+	public Salle findSallebyid(int ID_SALLE) {
 		Salle S=null;
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
@@ -71,7 +71,7 @@ public List<Salle> allMatiere() {
 		return S;
 
 	}
-	public boolean deleteMatiere(Salle salle) {
+	public boolean deleteSalle(Salle salle) {
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
@@ -95,7 +95,7 @@ public List<Salle> allMatiere() {
 		return false;
 	}	
 	
-	public boolean updateMatiere(Salle S) {
+	public boolean updateSalle(Salle S) {
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
