@@ -6,55 +6,119 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.inpt.gestionecole.config.Connexion;
+import com.inpt.gestionecole.config.HibernateSessionFactory;
+import com.inpt.gestionecole.models.AffectationMatiere;
 import com.inpt.gestionecole.models.Matiere;
 
 
 public class MatiereController {
 	Connection conn;
-	// here add the atributes that you will need view the
-	// com.inpt.gestionecole.tests classes for exemple
-
+	// here add the attributes that you will need view the
+	// com.inpt.gestionecole.tests classes for example
+	Session session = null;
 	public MatiereController() {
 		conn = Connexion.getConnection();
 	}
-	public int add(Matiere m) {
-		int nb=Connexion.Maj("insert into Matiere values("+m.getID_MATIERE()+",'"+m.getNOM_MATIERE()+"','"+m.getSEMESTRE()+"')");
-		return nb;
-	}
-	public List<Matiere> allMatiere() {
-		List<Matiere> matiere = new ArrayList<Matiere>();
-	    ResultSet rs = Connexion.select("select * from Matiere");
-        try {
-			while (rs.next()){
-				Matiere M= new Matiere(rs.getInt(1),rs.getString(2),rs.getString(3));
-				matiere.add(M);
+
+public boolean add(Matiere m) {
+		
+		try {
+		
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.save(m);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
 		}
-		return matiere;
+		return false;
 	}
+	
+public List<Matiere> allMatiere() {
+	List<Matiere> matieres = new ArrayList<Matiere>();
+	session = HibernateSessionFactory.buildSessionFactory().openSession();
+	Query query = session.createQuery("from Matiere");
+	matieres = query.list();
+	session.close();
+	return matieres;
+}
 	
 	public Matiere findMatierebyid(int ID_MATIERE) {
 		Matiere M=null;
-		ResultSet rs = Connexion.select("select * from Matiere where ID_MATIERE="+ID_MATIERE);
 		try {
-			if(rs.next()){
-			M = new Matiere(rs.getInt(1),rs.getString(2),rs.getString(3));
-			}
-		} catch (SQLException e) {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+
+			M = (Matiere) session.get(Matiere.class, ID_MATIERE);
+
+		} catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
+			session.close();
 		}
+		
 		return M;
+
 	}
-	public int deleteMatiere(int ID_MATIERE) {
-		int nb = Connexion.Maj("delete from Matiere where ID_MATIERE="+ID_MATIERE);
-		return nb;
+	public boolean deleteMatiere(Matiere matiere) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.delete(matiere);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
+	}	
+	
+	public boolean updateMatiere(Matiere M) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.update(M);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
-	public int updateMatiere(Matiere M) {
-		int nb = Connexion.Maj("UPDATE `Matiere` SET `NOM_MATIERE` ='"+M.getNOM_MATIERE()+"', `SEMESTRE` = '"+M.getSEMESTRE()+"' WHERE `Matiere`.`ID_MATIERE` ="+M.getID_MATIERE()+"");
-		return nb;
-	}
-	// here add the methods that you will need
 }

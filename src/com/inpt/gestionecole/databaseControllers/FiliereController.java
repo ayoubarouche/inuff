@@ -6,64 +6,118 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 import com.inpt.gestionecole.config.Connexion;
+import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.Filiere;
-import com.inpt.gestionecole.models.Salle;
 
 public class FiliereController {
 	Connection conn;
-	// here add the atributes that you will need view the
-	// com.inpt.gestionecole.tests classes for exemple
-
+	// here add the attributes that you will need view the
+	// com.inpt.gestionecole.tests classes for example
+	Session session = null;
 	public FiliereController() {
 		conn = Connexion.getConnection();
+	}
 
-	}
-	// here add the methods that you will need
-	public int add(Filiere f) {
-		int nb=Connexion.Maj("insert into filiere values(null,'"+f.getNOM_FILIERE()+"','"+f.getNOM_FORMATION()+
-				"','"+f.getSEMESTRE()+"',"+f.getCHEF_DE_FILIERE()+");");
-		return nb;
+public boolean add(Filiere f) {
 		
-	}
-	public List<Filiere> allFiliere(){
-		List<Filiere> filiere= new ArrayList<Filiere>();
-	    ResultSet rs = Connexion.select("select * from filiere");
-        try {
-			while (rs.next()){
-				Filiere F= new Filiere(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getInt(5));
-				filiere.add(F);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return filiere;
-		
-	}
-	public Filiere findFilierebyid(int id_F) {
-		Filiere F = null;
-		ResultSet rs = Connexion.select("select * from filiere where ID_FILIERE="+id_F);
 		try {
-			if(rs.next()){
-			F = new Filiere(rs.getInt(1),rs.getString(2), rs.getString(3),rs.getString(4),rs.getInt(5));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return F;
 		
-	}
-	public int updateFiliere(Filiere F) {
-		int nb = Connexion.Maj("UPDATE `Filiere` SET `NOM_FILIERE` ='"+F.getNOM_FILIERE()+"', `NOM_FORMATION` = '"
-				+F.getNOM_FORMATION()+"', `SEMESTRE` ='"+F.getSEMESTRE()+"', `CHEF_DE_FILIERE` = "
-				+F.getCHEF_DE_FILIERE()+" WHERE `filiere`.`ID_FILIERE` = "+F.getID_FILIERE()+";");
-	    return nb;
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.save(f);
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	public int deleteFiliere(int id_F) {
-		int nb = Connexion.Maj("delete from Filiere where ID_FILIERE="+id_F);
-		return nb;
+public List<Filiere> allFiliere() {
+	List<Filiere> filieres = new ArrayList<Filiere>();
+	session = HibernateSessionFactory.buildSessionFactory().openSession();
+	Query query = session.createQuery("from Filiere");
+	filieres = query.list();
+	session.close();
+	return filieres;
+}
+	
+	public Filiere findMatierebyid(int ID_FILIERE) {
+		Filiere F=null;
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+
+			F = (Filiere) session.get(Filiere.class, ID_FILIERE);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			session.close();
+		}
 		
+		return F;
+	}
+	
+	public boolean deleteFiliere(Filiere filiere) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.delete(filiere);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
+	}	
+	
+	public boolean updateFiliere(Filiere F) {
+		try {
+			session = HibernateSessionFactory.buildSessionFactory().openSession();
+			session.beginTransaction();
+			session.update(F);
+
+			session.getTransaction().commit();
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			if (null != session.getTransaction()) {
+
+				session.getTransaction().rollback();
+				return false;
+			}
+		} finally {
+			if (session != null) {
+				session.close();
+				return true;
+			}
+		}
+		return false;
 	}
 }
+
