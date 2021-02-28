@@ -1,68 +1,99 @@
 package com.inpt.gestionecole.models;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
+import com.inpt.gestionecole.config.AffectationMatiereId;
+
 import java.util.List;
+import java.util.Objects;
 
 @Entity  
 @Table(name="Affectation")  
 public class AffectationMatiere {
-	@Id   
-	@GeneratedValue(strategy=GenerationType.AUTO) 
-	@Column(name = "ID_AFFECTATION")
-	int ID_AFFECTATION_MATIERE;
+	@EmbeddedId
+	AffectationMatiereId ID_AFFECTATION;
+	@ManyToOne(targetEntity=Enseignant.class, optional = false)
+	@MapsId("id_enseignant")
+	Enseignant enseignant;
 	
-	@OneToMany
-	@JoinColumn(name="ID_ENSEIGNANT")
-	List<Enseignant> enseignants;
+	@ManyToOne(targetEntity=Matiere.class, optional = false)
+	@MapsId("id_matiere")
+	Matiere matiere;
 	
-	@OneToMany
-	@JoinColumn(name="ID_MATIERE")
-	List<Matiere> matieres;
+	@ManyToOne(targetEntity=Filiere.class, optional = false)
+	@MapsId("id_filiere")
+	Filiere filiere;
 	
 	public AffectationMatiere() {
 		
 	}
-	public AffectationMatiere(int iD_AFFECTATION_MATIERE) {
+
+
+	public AffectationMatiere( Enseignant enseignant, Filiere filiere,Matiere matiere) {
 		super();
-		ID_AFFECTATION_MATIERE = iD_AFFECTATION_MATIERE;
+		this.ID_AFFECTATION = new AffectationMatiereId(enseignant.getID_ENSEIGNANT(),filiere.getCHEF_DE_FILIERE(),matiere.getID_MATIERE());
+		this.enseignant = enseignant;
+		this.matiere = matiere;
+		this.filiere = filiere;
 	}
 
-	public AffectationMatiere(int iD_AFFECTATION_MATIERE, List<Enseignant> enseignant, List<Matiere> matiere) {
-		super();
-		ID_AFFECTATION_MATIERE = iD_AFFECTATION_MATIERE;
-		this.enseignants = enseignant;
-		this.matieres = matiere;
+	public Filiere getFiliere() {
+		return filiere;
+	}
+	public void setFiliere(Filiere filiere) {
+		this.filiere = filiere;
 	}
 
-	public int getID_AFFECTATION_MATIERE() {
-		return ID_AFFECTATION_MATIERE;
-	}
-
-	public void setID_AFFECTATION_MATIERE(int iD_AFFECTATION_MATIERE) {
-		ID_AFFECTATION_MATIERE = iD_AFFECTATION_MATIERE;
-	}
-	public List<Enseignant> getEnseignants() {
-		return enseignants;
-	}
-	public void setEnseignants(List<Enseignant> enseignants) {
-		this.enseignants = enseignants;
-	}
-	public List<Matiere> getMatieres() {
-		return matieres;
-	}
-	public void setMatieres(List<Matiere> matieres) {
-		this.matieres = matieres;
+	public AffectationMatiereId getID_AFFECTATION() {
+		return ID_AFFECTATION;
 	}
 
 
+	public void setID_AFFECTATION(AffectationMatiereId iD_AFFECTATION) {
+		ID_AFFECTATION = iD_AFFECTATION;
+	}
+
+
+	public Enseignant getEnseignant() {
+		return enseignant;
+	}
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
+	public Matiere getMatiere() {
+		return matiere;
+	}
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
+	}
+
+	   @Override
+	    public boolean equals(Object o) {
+	        if (this == o) return true;
+	 
+	        if (o == null || getClass() != o.getClass())
+	            return false;
+	 
+	        AffectationMatiere that = (AffectationMatiere) o;
+	        return Objects.equals(enseignant, that.enseignant) &&
+	               Objects.equals(matiere, that.matiere) && Objects.equals(filiere, that.filiere);
+	    }
+	 
+	    @Override
+	    public int hashCode() {
+	        return Objects.hash(enseignant, matiere,filiere);
+	    }
 
 }

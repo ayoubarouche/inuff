@@ -14,15 +14,15 @@
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Ajouter Enseignant</div>
-		<form action="#">
+		<form action="${pageContext.request.contextPath}/administrateur/enseignants/add" method="post">
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Nom</span>
-					<input type="text" placeholder="Entrer le nom" required>
+					<input type="text" placeholder="Entrer le nom" name="nom" required>
 				</div>
 				<div class="input-box">
 					<span class="det">Prénom</span>
-					<input type="text" placeholder="Entrer le prénom" required>
+					<input type="text" placeholder="Entrer le prénom" name="prenom" required>
 				</div>
 			</div>
 			<div class="button">

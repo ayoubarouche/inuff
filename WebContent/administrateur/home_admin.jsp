@@ -92,7 +92,7 @@
             </nav>
           </div>
         </div>
-        <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-2">bienvenue dans votre département digitale</h1>
+        <h1 class="u-align-center u-custom-font u-font-oswald u-text u-text-body-alt-color u-text-2">bienvenue ${admin.getNom()} dans votre département digitale</h1>
       </div>
     </section>
     <section class="u-align-left u-clearfix u-grey-10 u-typography-Normal--Introduction u-section-2" src="" id="carousel_d0d2">

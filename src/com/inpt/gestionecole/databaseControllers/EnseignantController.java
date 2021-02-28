@@ -49,7 +49,7 @@ public class EnseignantController {
 		return enseignant;
 	}
 
-	public boolean register(User enseignant) {
+	public boolean register(Enseignant enseignant) {
 
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();

@@ -98,7 +98,7 @@ public class AffectationMatiereController {
 		}
 		return false;
 	}
-	public boolean updateMatiere(AffectationMatiere A) {
+	public boolean updateAffectationMatiere(AffectationMatiere A) {
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
@@ -121,5 +121,6 @@ public class AffectationMatiereController {
 		}
 		return false;
 	}
+	
 	// here the methods that we will need
 }
