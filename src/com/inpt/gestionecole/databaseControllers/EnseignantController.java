@@ -45,7 +45,7 @@ public class EnseignantController {
 		query.setParameter("username", username);
 		query.setParameter("password", password);
 		Enseignant enseignant = (Enseignant) query.uniqueResult();
-		session.close();
+		 
 		return enseignant;
 	}
 
@@ -66,7 +66,7 @@ public class EnseignantController {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+			
 				return true;
 			}
 		}
@@ -78,7 +78,7 @@ public class EnseignantController {
 		session = HibernateSessionFactory.buildSessionFactory().openSession();
 		Query query = session.createQuery("from Enseignant");
 		enseignants = query.list();
-		session.close();
+	
 		return enseignants;
 	}
 
@@ -93,7 +93,7 @@ public class EnseignantController {
 			// TODO: handle exception
 			session.close();
 		}
-		session.close();
+	 
 		return enseignant;
 
 	}
@@ -115,7 +115,7 @@ public class EnseignantController {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+		
 				return true;
 			}
 		}
@@ -139,7 +139,7 @@ public class EnseignantController {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				
 				return true;
 			}
 		}
