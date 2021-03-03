@@ -18,7 +18,7 @@ import com.inpt.gestionecole.shared.UserController;
 
 public class EnseignantController {
 	Connection conn = null;
-	static Session session;
+	public static Session session;
 
 	public EnseignantController() {
 		conn = Connexion.getConnection();
@@ -78,7 +78,7 @@ public class EnseignantController {
 		session = HibernateSessionFactory.buildSessionFactory().openSession();
 		Query query = session.createQuery("from Enseignant");
 		enseignants = query.list();
-	
+		
 		return enseignants;
 	}
 
@@ -88,18 +88,19 @@ public class EnseignantController {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 
 			enseignant = (Enseignant) session.get(Enseignant.class, ID_ENSEIGNANT);
-
+			
 		} catch (Exception e) {
 			// TODO: handle exception
-			session.close();
+			
 		}
-	 
+		
 		return enseignant;
 
 	}
 
 	public boolean deleteEnseignant(Enseignant enseignant) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.delete(enseignant);
@@ -124,6 +125,7 @@ public class EnseignantController {
 
 	public boolean updateEnseignant(Enseignant enseignant) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.update(enseignant);
