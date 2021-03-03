@@ -1,8 +1,10 @@
 package com.inpt.gestionecole.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -124,4 +126,19 @@ public class Filiere {
 			}
 		}
 	}
+	public Set<Matiere> getMatiers(){
+		Set<Matiere> matiers = new HashSet<>();
+		for(AffectationMatiere affectationMatiere :matier_enseignant ) {
+				matiers.add(affectationMatiere.getMatiere());
+		}
+		return matiers;
+	}
+	public Set<Enseignant> getEnseignants(){
+		Set<Enseignant> enseignants = new HashSet<>();
+		for(AffectationMatiere affectationMatiere :matier_enseignant ) {
+				enseignants.add(affectationMatiere.getEnseignant());
+		}
+		return enseignants;
+	}
+		
 }

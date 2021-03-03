@@ -12,7 +12,7 @@
 			<li class="ico">
 				<a href="#">
 					<span class="icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
-					<span class="title">Enseignants</span>
+					<span class="title">${param.tabletype}</span>
 				</a>
 			</li>
 			<li class="ico">

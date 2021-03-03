@@ -40,7 +40,7 @@ public boolean add(Filiere f) {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				
 				return true;
 			}
 		}
@@ -52,7 +52,7 @@ public List<Filiere> allFiliere() {
 	session = HibernateSessionFactory.buildSessionFactory().openSession();
 	Query query = session.createQuery("from Filiere");
 	filieres = query.list();
-	session.close();
+	
 	return filieres;
 }
 	
@@ -74,6 +74,7 @@ public List<Filiere> allFiliere() {
 	
 	public boolean deleteFiliere(Filiere filiere) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.delete(filiere);
@@ -89,7 +90,7 @@ public List<Filiere> allFiliere() {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+			
 				return true;
 			}
 		}
@@ -98,10 +99,10 @@ public List<Filiere> allFiliere() {
 	
 	public boolean updateFiliere(Filiere F) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.update(F);
-
 			session.getTransaction().commit();
 			return true;
 		} catch (Exception e) {
@@ -113,7 +114,7 @@ public List<Filiere> allFiliere() {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				
 				return true;
 			}
 		}

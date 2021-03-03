@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!doctype html>
 <html lang="fr">
   <head>
@@ -14,30 +15,37 @@
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Ajouter Filière</div>
-		<form action="#">
-			<div class="details">
-				<div class="input-box">
-					<span class="det">Nom Filière</span>
-					<input type="text" placeholder="Entrer le nom de Filière" required>
+	<form action="${pageContext.request.contextPath}/administrateur/filiere/add" method="post">
+				<div class="details">
+					
+					
+					<div class="input-box">
+						<span class="det">Nom Filière</span> <input type="text"
+						name="nomfiliere"	placeholder="Entrer le Nom de la Filière" value="" required>
+					</div>
+					<div class="input-box">
+						<span class="det">Nom Formation</span> <input type="text"
+						name="nomformation"	placeholder="Entrer le nom de Formation" value="" required>
+					</div>
+					<div class="input-box">
+						<span class="det">Semestre</span> <input type="text"
+						name="semestre"	placeholder="Entrer le Semestre" value="" required>
+					</div>
+					<div class="input-box">
+						<span class="det">Chef de Filière</span> <select name="chef" id="selectchef" >
+						<c:forEach items="${enseignantlist}" var="enseignant">
+							<option value='${enseignant.getID_ENSEIGNANT()}' ><c:out value="${enseignant.getNom()} ${enseignant.getPrenom()}"/></option>
+							
+							</c:forEach>
+						</select>
+					</div>
 				</div>
-				<div class="input-box">
-					<span class="det">Nom Formation</span>
-					<input type="text" placeholder="Entrer le nom de Formation" required>
+				<div class="button">
+					<input type="reset" value="Annuler"> <input type="submit"
+					name="submit"
+						value="Ajouter" >
 				</div>
-				<div class="input-box">
-					<span class="det">Semestre</span>
-					<input type="text" placeholder="Entrer le Semestre" required>
-				</div>
-				<div class="input-box">
-					<span class="det">Id Chef de Filière</span>
-					<input type="number" placeholder="Entrer l'id du chef de filière" required>
-				</div>
-			</div>
-			<div class="button">
-				<input type="reset" value="Annuler">
-				<input type="submit" value="Ajouter">
-			</div>
-		</form>
+			</form>
 	</div>
 	</div>
 <%@ include file="/sidebar/base2.jsp" %>
