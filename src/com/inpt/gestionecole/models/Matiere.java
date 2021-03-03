@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.inpt.gestionecole.databaseControllers.AffectationMatiereController;
 
 @Entity
 @Table(name = "Matiere")
@@ -26,7 +29,9 @@ public class Matiere {
 	private String SEMESTRE;
 	@OneToMany(mappedBy = "matiere", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<AffectationMatiere> filiere_enseignant = new ArrayList<>();
-
+	
+	@Transient
+	private AffectationMatiereController amc = new AffectationMatiereController();
 	public List<AffectationMatiere> getFiliere_enseignant() {
 		return filiere_enseignant;
 	}
@@ -79,6 +84,7 @@ public class Matiere {
 		filiere_enseignant.add(affectation);
 		filiere.getMatier_enseignant().add(affectation);
 		enseignant.getMatier_filiere().add(affectation);
+		amc.add(affectation);
 	}
 
 	public void RemoveEnseignantAndFiliere(Enseignant enseignant, Filiere filiere) {
@@ -93,6 +99,7 @@ public class Matiere {
 				affectation.setEnseignant(null);
 				affectation.setFiliere(null);
 				affectation.setMatiere(null);
+				amc.deleteAffectationMatiere(affectation);
 			}
 		}
 	}

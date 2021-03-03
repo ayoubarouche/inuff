@@ -22,18 +22,24 @@ import java.util.Objects;
 @Entity  
 @Table(name="Affectation")  
 public class AffectationMatiere {
-	@EmbeddedId
-	AffectationMatiereId ID_AFFECTATION;
+//	@EmbeddedId
+	//AffectationMatiereId ID_AFFECTATION;
+	
+	@Id
+	@Column(name  = "ID_AFFECTATION")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id ;
+	
 	@ManyToOne(targetEntity=Enseignant.class, optional = false)
-	@MapsId("id_enseignant")
+	@JoinColumn(name="id_enseignant")
 	Enseignant enseignant;
 	
 	@ManyToOne(targetEntity=Matiere.class, optional = false)
-	@MapsId("id_matiere")
+	@JoinColumn(name="id_matiere")
 	Matiere matiere;
 	
 	@ManyToOne(targetEntity=Filiere.class, optional = false)
-	@MapsId("id_filiere")
+	@JoinColumn(name="id_filiere")
 	Filiere filiere;
 	
 	public AffectationMatiere() {
@@ -43,7 +49,7 @@ public class AffectationMatiere {
 
 	public AffectationMatiere( Enseignant enseignant, Filiere filiere,Matiere matiere) {
 		super();
-		this.ID_AFFECTATION = new AffectationMatiereId(enseignant.getID_ENSEIGNANT(),filiere.getCHEF_DE_FILIERE(),matiere.getID_MATIERE());
+	//	this.ID_AFFECTATION = new AffectationMatiereId(enseignant.getID_ENSEIGNANT(),filiere.getCHEF_DE_FILIERE(),matiere.getID_MATIERE());
 		this.enseignant = enseignant;
 		this.matiere = matiere;
 		this.filiere = filiere;
@@ -56,13 +62,13 @@ public class AffectationMatiere {
 		this.filiere = filiere;
 	}
 
-	public AffectationMatiereId getID_AFFECTATION() {
-		return ID_AFFECTATION;
-	}
+	//public AffectationMatiereId getID_AFFECTATION() {
+//		return ID_AFFECTATION;
+	//}
 
 
 	public void setID_AFFECTATION(AffectationMatiereId iD_AFFECTATION) {
-		ID_AFFECTATION = iD_AFFECTATION;
+	//	ID_AFFECTATION = iD_AFFECTATION;
 	}
 
 
@@ -78,8 +84,19 @@ public class AffectationMatiere {
 	public void setMatiere(Matiere matiere) {
 		this.matiere = matiere;
 	}
+	
 
-	   @Override
+	   public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	@Override
 	    public boolean equals(Object o) {
 	        if (this == o) return true;
 	 

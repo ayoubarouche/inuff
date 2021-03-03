@@ -1,8 +1,10 @@
 package com.inpt.gestionecole.models;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,7 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import com.inpt.gestionecole.databaseControllers.AffectationMatiereController;
 import com.inpt.gestionecole.shared.User;
 
 @Entity
@@ -31,11 +35,15 @@ public class Enseignant {
 	private String nom;
 	@Column(name = "PRENOM_ENSEIGNANT")
 	private String prenom;
-	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "enseignant", cascade = CascadeType.ALL)
 	private List<AffectationMatiere> matier_filiere = new ArrayList<>();
-
+	@Transient
+	private AffectationMatiereController amc = new AffectationMatiereController();
+	
+	
 	public Enseignant() {
 		super();
+		
 	}
 
 	public List<AffectationMatiere> getMatier_filiere() {
@@ -104,6 +112,7 @@ public class Enseignant {
 		matier_filiere.add(affectation);
 		filiere.getMatier_enseignant().add(affectation);
 		matiere.getFiliere_enseignant().add(affectation);
+		amc.add(affectation);
 	}
 
 	public void RemoveFiliereAndMatiere(Filiere filiere, Matiere matiere) {
@@ -113,13 +122,28 @@ public class Enseignant {
 			if (affectation.getEnseignant().equals(this) && affectation.getFiliere().equals(filiere)
 					&& affectation.getMatiere().equals(matiere)) {
 				iterator.remove();
+	
 				affectation.getFiliere().getMatier_enseignant().remove(affectation);
 				affectation.getMatiere().getFiliere_enseignant().remove(affectation);
 				affectation.setEnseignant(null);
 				affectation.setFiliere(null);
 				affectation.setMatiere(null);
+				amc.deleteAffectationMatiere(affectation);
 			}
 		}
 	}
-
+	public Set<Matiere> getMatiers(){
+		Set<Matiere> matiers = new HashSet<>();
+		for(AffectationMatiere affectationMatiere :matier_filiere ) {
+				matiers.add(affectationMatiere.getMatiere());
+		}
+		return matiers;
+	}
+	public Set<Filiere> getFiliers(){
+		Set<Filiere> filiers = new HashSet<>();
+		for(AffectationMatiere affectationMatiere :matier_filiere ) {
+				filiers.add(affectationMatiere.getFiliere());
+		}
+		return filiers;
+	}
 }

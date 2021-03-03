@@ -5,14 +5,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
+import com.inpt.gestionecole.models.Administrateur;
 import com.inpt.gestionecole.models.AffectationMatiere;
 import com.inpt.gestionecole.models.Enseignant;
+import com.inpt.gestionecole.models.Filiere;
+import com.inpt.gestionecole.models.Matiere;
 
 public class AffectationMatiereController {
 	Connection conn;
@@ -42,7 +46,7 @@ public class AffectationMatiereController {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}
@@ -55,7 +59,7 @@ public class AffectationMatiereController {
 		session = HibernateSessionFactory.buildSessionFactory().openSession();
 		Query query = session.createQuery("from Affectation");
 		affectationmatieres = query.list();
-		session.close();
+		 
 		return affectationmatieres;
 	}
 	
@@ -92,7 +96,7 @@ public class AffectationMatiereController {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}
@@ -115,12 +119,37 @@ public class AffectationMatiereController {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}
 		return false;
 	}
+	public List<AffectationMatiere> getMatiereFiliereOfEnseignant(Enseignant enseignant){
+		List<AffectationMatiere> affectationsmatiers = new ArrayList<AffectationMatiere>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Affectation where ID_ENSEIGNANT=:id");
+		query.setParameter("id", enseignant.getID_ENSEIGNANT());
+		affectationsmatiers = query.list();
+		return affectationsmatiers;
+	}
 	
+	public List<AffectationMatiere> getMatiereEnseignantOfFiliere(Filiere filiere){
+		List<AffectationMatiere> affectationsmatiers = new ArrayList<AffectationMatiere>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Affectation where ID_FILIERE=:id");
+		query.setParameter("id",filiere.getID_FILIERE() );
+		affectationsmatiers = query.list();
+		return affectationsmatiers;
+	}
+	
+	public List<AffectationMatiere> getFilieresEnseignantOfMatiere(Matiere matiere){
+		List<AffectationMatiere> affectationsmatiers = new ArrayList<AffectationMatiere>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Affectation where ID_MATIERE=:id");
+		query.setParameter("id",matiere.getID_MATIERE() );
+		affectationsmatiers = query.list();
+		return affectationsmatiers;
+	}
 	// here the methods that we will need
 }

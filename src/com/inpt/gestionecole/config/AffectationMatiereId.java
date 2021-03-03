@@ -43,7 +43,7 @@ public class AffectationMatiereId implements Serializable {
 	public void setID_MATIERE(int iD_MATIERE) {
 		ID_MATIERE = iD_MATIERE;
 	}
-	  @Override
+/*	  @Override
 	    public boolean equals(Object o) {
 	        if (this == o) return true;
 	 
@@ -58,5 +58,5 @@ public class AffectationMatiereId implements Serializable {
 	    @Override
 	    public int hashCode() {
 	        return Objects.hash(ID_ENSEIGNANT, ID_FILIERE,ID_MATIERE);
-	    }
+	    }*/
 }
