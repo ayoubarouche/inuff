@@ -10,11 +10,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.inpt.gestionecole.models.Enseignant;
 
 /**
  * Servlet implementation class Download
  */
-@WebServlet("/administrateur/download")
+@WebServlet({"/administrateur/download","/enseignant/download"})
 public class Download extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,10 +34,18 @@ public class Download extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String id;
+		System.out.println(request.getServletPath());
+		id=request.getParameter("id");
+		if(request.getServletPath().equals("/enseignant/download")) {
+			HttpSession session = request.getSession();
+			Enseignant ens =(Enseignant)session.getAttribute("enseignant");
+			id = String.valueOf(ens.getID_ENSEIGNANT());
+		}
+		
 		String SAVE_DIR = "emplois";
 		String appPath = request.getServletContext().getRealPath("");
 		String savePath = appPath + File.separator + SAVE_DIR;
-		String id=request.getParameter("id");
 		String filePath = savePath + File.separator + id+".pdf";
 		
 		File pdfFile = new File(filePath);
