@@ -34,19 +34,19 @@
                         <div class="">
                             <h4>${ele.getNom()} ${ele.getPrenom()}</h4>
                         </div>
-                        <button class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light"><a class="voir" href="profile?id=${ele.getID_ENSEIGNANT()}"  type="button">Voir le Profil</a></button>
+                        <button onclick="window.location.href='profileadmin?id=${ele.getID_ENSEIGNANT()}';", class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Voir le Profil</button>
                         <div class="mt-4">
                             <div class="row">
                                 <div class="col-4">
                                     <div class="mt-3">
-                                        <h4>2563</h4>
+                                        <h4>${ele.getFiliers().size()}</h4>
                                         <p class="mb-0 text-muted">Filieres</p>
                                     </div>
                                 </div>
                                 
                                 <div class="col-4">
                                     <div class="mt-3">
-                                        <h4>1125</h4>
+                                        <h4>${ele.getMatiers().size()}</h4>
                                         <p class="mb-0 text-muted">Matieres</p>
                                     </div>
                                 </div>
