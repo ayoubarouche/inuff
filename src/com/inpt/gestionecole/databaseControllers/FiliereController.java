@@ -1,31 +1,28 @@
 package com.inpt.gestionecole.databaseControllers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.Filiere;
 
 public class FiliereController {
-	Connection conn;
+
 	// here add the attributes that you will need view the
 	// com.inpt.gestionecole.tests classes for example
 	Session session = null;
+
 	public FiliereController() {
-		conn = Connexion.getConnection();
+
 	}
 
-public boolean add(Filiere f) {
-		
+	public boolean add(Filiere f) {
+
 		try {
-		
+
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.save(f);
@@ -40,24 +37,24 @@ public boolean add(Filiere f) {
 			}
 		} finally {
 			if (session != null) {
-				
+
 				return true;
 			}
 		}
 		return false;
 	}
-	
-public List<Filiere> allFiliere() {
-	List<Filiere> filieres = new ArrayList<Filiere>();
-	session = HibernateSessionFactory.buildSessionFactory().openSession();
-	Query query = session.createQuery("from Filiere");
-	filieres = query.list();
-	
-	return filieres;
-}
-	
+
+	public List<Filiere> allFiliere() {
+		List<Filiere> filieres = new ArrayList<Filiere>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Filiere");
+		filieres = query.list();
+
+		return filieres;
+	}
+
 	public Filiere findFilierebyid(int ID_FILIERE) {
-		Filiere F=null;
+		Filiere F = null;
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 
@@ -68,10 +65,10 @@ public List<Filiere> allFiliere() {
 			e.printStackTrace();
 			session.close();
 		}
-		
+
 		return F;
 	}
-	
+
 	public boolean deleteFiliere(Filiere filiere) {
 		try {
 			session.close();
@@ -90,13 +87,13 @@ public List<Filiere> allFiliere() {
 			}
 		} finally {
 			if (session != null) {
-			
+
 				return true;
 			}
 		}
 		return false;
-	}	
-	
+	}
+
 	public boolean updateFiliere(Filiere F) {
 		try {
 			session.close();
@@ -114,11 +111,10 @@ public List<Filiere> allFiliere() {
 			}
 		} finally {
 			if (session != null) {
-				
+
 				return true;
 			}
 		}
 		return false;
 	}
 }
-

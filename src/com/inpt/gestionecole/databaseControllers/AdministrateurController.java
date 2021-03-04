@@ -1,19 +1,13 @@
 package com.inpt.gestionecole.databaseControllers;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.Administrateur;
-import com.inpt.gestionecole.shared.User;
-import com.inpt.gestionecole.shared.UserController;
 
 public class AdministrateurController {
 	Connection conn = null;
@@ -23,7 +17,7 @@ public class AdministrateurController {
 
 	public AdministrateurController() {
 		// TODO Auto-generated constructor stub
-		conn = Connexion.getConnection();
+
 	}
 
 	public Administrateur login(String username, String password) {

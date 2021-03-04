@@ -1,30 +1,26 @@
 package com.inpt.gestionecole.databaseControllers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
-import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
-import com.inpt.gestionecole.models.Matiere;
 import com.inpt.gestionecole.models.Salle;
 
 public class SalleController {
-	Connection conn; 
+
 	Session session = null;
+
 	public SalleController() {
-		conn = Connexion.getConnection();
+
 	}
 
-public boolean add(Salle s) {
-		
+	public boolean add(Salle s) {
+
 		try {
-		
+
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.save(s);
@@ -39,24 +35,24 @@ public boolean add(Salle s) {
 			}
 		} finally {
 			if (session != null) {
-				 
+
 				return true;
 			}
 		}
 		return false;
 	}
-	
-public List<Salle> allSalle() {
-	List<Salle> salles = new ArrayList<Salle>();
-	session = HibernateSessionFactory.buildSessionFactory().openSession();
-	Query query = session.createQuery("from Salle");
-	salles = query.list();
-	 
-	return salles;
-}
-	
+
+	public List<Salle> allSalle() {
+		List<Salle> salles = new ArrayList<Salle>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Salle");
+		salles = query.list();
+
+		return salles;
+	}
+
 	public Salle findSallebyid(int ID_SALLE) {
-		Salle S=null;
+		Salle S = null;
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 
@@ -67,10 +63,11 @@ public List<Salle> allSalle() {
 			e.printStackTrace();
 			session.close();
 		}
-		
+
 		return S;
 
 	}
+
 	public boolean deleteSalle(Salle salle) {
 		try {
 			session.close();
@@ -89,13 +86,13 @@ public List<Salle> allSalle() {
 			}
 		} finally {
 			if (session != null) {
-				 
+
 				return true;
 			}
 		}
 		return false;
-	}	
-	
+	}
+
 	public boolean updateSalle(Salle S) {
 		try {
 			session.close();
@@ -114,11 +111,10 @@ public List<Salle> allSalle() {
 			}
 		} finally {
 			if (session != null) {
-				 
+
 				return true;
 			}
 		}
 		return false;
 	}
 }
-	

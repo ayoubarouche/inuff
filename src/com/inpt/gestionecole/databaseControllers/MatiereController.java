@@ -1,32 +1,28 @@
 package com.inpt.gestionecole.databaseControllers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.Matiere;
 
-
 public class MatiereController {
-	Connection conn;
+
 	// here add the attributes that you will need view the
 	// com.inpt.gestionecole.tests classes for example
 	Session session = null;
+
 	public MatiereController() {
-		conn = Connexion.getConnection();
+
 	}
 
-public boolean add(Matiere m) {
-		
+	public boolean add(Matiere m) {
+
 		try {
-		
+
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.save(m);
@@ -41,24 +37,24 @@ public boolean add(Matiere m) {
 			}
 		} finally {
 			if (session != null) {
-				 ;
+				;
 				return true;
 			}
 		}
 		return false;
 	}
-	
-public List<Matiere> allMatiere() {
-	List<Matiere> matieres = new ArrayList<Matiere>();
-	session = HibernateSessionFactory.buildSessionFactory().openSession();
-	Query query = session.createQuery("from Matiere");
-	matieres = query.list();
-	 
-	return matieres;
-}
-	
+
+	public List<Matiere> allMatiere() {
+		List<Matiere> matieres = new ArrayList<Matiere>();
+		session = HibernateSessionFactory.buildSessionFactory().openSession();
+		Query query = session.createQuery("from Matiere");
+		matieres = query.list();
+
+		return matieres;
+	}
+
 	public Matiere findMatierebyid(int ID_MATIERE) {
-		Matiere M=null;
+		Matiere M = null;
 		try {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 
@@ -69,10 +65,11 @@ public List<Matiere> allMatiere() {
 			e.printStackTrace();
 			session.close();
 		}
-		
+
 		return M;
 
 	}
+
 	public boolean deleteMatiere(Matiere matiere) {
 		try {
 			session.close();
@@ -91,13 +88,13 @@ public List<Matiere> allMatiere() {
 			}
 		} finally {
 			if (session != null) {
-				 
+
 				return true;
 			}
 		}
 		return false;
-	}	
-	
+	}
+
 	public boolean updateMatiere(Matiere M) {
 		try {
 			session.close();
@@ -116,7 +113,7 @@ public List<Matiere> allMatiere() {
 			}
 		} finally {
 			if (session != null) {
-				 
+
 				return true;
 			}
 		}

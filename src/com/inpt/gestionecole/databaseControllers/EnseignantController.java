@@ -1,28 +1,20 @@
 package com.inpt.gestionecole.databaseControllers;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
-import com.inpt.gestionecole.models.Administrateur;
 import com.inpt.gestionecole.models.AffectationMatiere;
 import com.inpt.gestionecole.models.Enseignant;
-import com.inpt.gestionecole.shared.User;
-import com.inpt.gestionecole.shared.UserController;
 
 public class EnseignantController {
-	Connection conn = null;
+
 	public static Session session;
 
 	public EnseignantController() {
-		conn = Connexion.getConnection();
+
 	}
 
 	public Enseignant login(String username, String password) {
@@ -46,7 +38,7 @@ public class EnseignantController {
 		query.setParameter("username", username);
 		query.setParameter("password", password);
 		Enseignant enseignant = (Enseignant) query.uniqueResult();
-		 
+
 		return enseignant;
 	}
 
@@ -67,7 +59,7 @@ public class EnseignantController {
 			}
 		} finally {
 			if (session != null) {
-			
+
 				return true;
 			}
 		}
@@ -79,7 +71,7 @@ public class EnseignantController {
 		session = HibernateSessionFactory.buildSessionFactory().openSession();
 		Query query = session.createQuery("from Enseignant");
 		enseignants = query.list();
-		
+
 		return enseignants;
 	}
 
@@ -89,12 +81,12 @@ public class EnseignantController {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 
 			enseignant = (Enseignant) session.get(Enseignant.class, ID_ENSEIGNANT);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
-			
+
 		}
-		
+
 		return enseignant;
 
 	}
@@ -105,10 +97,10 @@ public class EnseignantController {
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			List<AffectationMatiere> affectations = enseignant.getMatier_filiere();
-		    AffectationMatiereController affController = new AffectationMatiereController();
-		    
-			for(AffectationMatiere affectation : affectations) {
-			affController.deleteAffectationMatiere(affectation);
+			AffectationMatiereController affController = new AffectationMatiereController();
+
+			for (AffectationMatiere affectation : affectations) {
+				affController.deleteAffectationMatiere(affectation);
 			}
 			session.delete(enseignant);
 
@@ -123,7 +115,7 @@ public class EnseignantController {
 			}
 		} finally {
 			if (session != null) {
-		
+
 				return true;
 			}
 		}
@@ -148,7 +140,7 @@ public class EnseignantController {
 			}
 		} finally {
 			if (session != null) {
-				
+
 				return true;
 			}
 		}

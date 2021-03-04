@@ -37,23 +37,18 @@
               <div class="u-custom-menu u-nav-container">
                 <ul class="u-nav u-spacing-20 u-unstyled u-nav-1">
      <li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Administrateurs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a href="./administrateurs" class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Enseignants</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a href="./enseignants" class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Matières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a href="./matieres" class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Filières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a href="./filieres" class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Salles</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a href="./salles" class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link u-white">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a href="../logout" class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-1 u-text-grey-90 u-text-hover-custom-color-2" style="padding: 18px 12px;">Logout</a>
@@ -64,23 +59,18 @@
                   <div class="u-sidenav-overflow">
                     <div class="u-menu-close u-menu-close-1"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-spacing-0 u-text-active-custom-color-1 u-text-hover-custom-color-2 u-unstyled u-white u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Administrateurs</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Enseignants</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Matières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Filières</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Salles</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10"><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Afficher</a>
-</li><li class="u-nav-item"><a class="u-active-palette-5-base u-button-style u-hover-palette-5-base u-nav-link">Ajouter</a>
 </li></ul>
 </div>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 18px 12px;">Logout</a>
