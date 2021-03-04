@@ -85,6 +85,7 @@
                     <div class="col-sm-3">
                       <h6 class="mb-0">Password</h6>
                     </div>
+                    
                     <div class="input-box">
                       <input type="text" readonly value="${admin.getPassword()}">
                     </div>
