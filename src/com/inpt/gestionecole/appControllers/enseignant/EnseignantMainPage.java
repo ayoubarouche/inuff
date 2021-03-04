@@ -1,5 +1,6 @@
 package com.inpt.gestionecole.appControllers.enseignant;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
@@ -41,6 +42,17 @@ public class EnseignantMainPage extends HttpServlet {
 			Set<Filiere> filieres = ens.getFiliers(); 
 			request.setAttribute("matieres", matieres);
 			request.setAttribute("filieres", filieres);
+			//test if emploi exists
+			String id = String.valueOf(ens.getID_ENSEIGNANT());
+			String SAVE_DIR = "emplois";
+			String appPath = request.getServletContext().getRealPath("");
+			String savePath = appPath + File.separator + SAVE_DIR;
+			String filePath = savePath + File.separator + id+".pdf";
+			File pdfFile = new File(filePath);
+			if (!pdfFile.exists()) {
+	        	request.setAttribute("exist","false");
+	        }else {request.setAttribute("exist","true");}
+			//endtest
 			getServletContext().getRequestDispatcher("/enseignant/profileEns.jsp").forward(request, response);
 			
 		}

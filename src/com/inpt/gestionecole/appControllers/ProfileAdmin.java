@@ -1,5 +1,6 @@
 package com.inpt.gestionecole.appControllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -45,7 +46,17 @@ public class ProfileAdmin extends HttpServlet {
 		request.setAttribute("matieres", matieres);
 		request.setAttribute("filieres", filieres);
 		request.setAttribute("ens", ens);
-		
+		//test if emploi exists
+		String id_s = String.valueOf(id);
+		String SAVE_DIR = "emplois";
+		String appPath = request.getServletContext().getRealPath("");
+		String savePath = appPath + File.separator + SAVE_DIR;
+		String filePath = savePath + File.separator + id_s+".pdf";
+		File pdfFile = new File(filePath);
+		if (!pdfFile.exists()) {
+        	request.setAttribute("exist","false");
+        }else {request.setAttribute("exist","true");}
+		//endtest
 		getServletContext().getRequestDispatcher("/administrateur/profileAdmin.jsp").forward(request, response);
 	}
 

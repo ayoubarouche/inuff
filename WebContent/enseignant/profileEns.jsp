@@ -24,7 +24,9 @@
                       <p class="text-secondary mb-1"></p>
                       <p class="text-muted font-size-sm"></p>
                       <div class="button1">
-                        <button onclick="window.location.href='enseignant/download';">Télécharger l'emploi du temps</button>
+                        <c:if test="${exist =='true'}"><button onclick="window.location.href='enseignant/download';">Télécharger l'emploi du temps</button></c:if>
+                        <c:if test="${exist =='false'}"><button>Emploi non disponible</button></c:if>
+                        
                       </div>
                     </div>
                   </div>

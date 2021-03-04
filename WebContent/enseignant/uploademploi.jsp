@@ -46,7 +46,7 @@
 				
 				<div class="input-box">
 				<span class="det">Choisir un fichier</span>
-				<input type="file" name="file" size="100" accept=".pdf"/>
+				<input type="file" style="width:100px;padding:0;height:30px" name="file" size="100" accept=".pdf"/>
 				 
 				</div>
 			</div>

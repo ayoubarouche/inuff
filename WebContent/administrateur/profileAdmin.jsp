@@ -24,8 +24,13 @@
                       <p class="text-secondary mb-1"></p>
                       <p class="text-muted font-size-sm"></p>
                       <div class="button1">
-          
-                        <button onclick="window.location.href='download?id=${ens.getID_ENSEIGNANT()}';" >Télécharger l'emploi du temps</button>
+          				<c:if test="${exist =='true'}"><button onclick="window.location.href='download?id=${ens.getID_ENSEIGNANT()}';">Télécharger l'emploi du temps</button></c:if>
+                        <c:if test="${exist =='false'}"><button>Emploi non disponible</button></c:if>
+                       
+                      </div>
+                      <div class="button1">
+          			  <button onclick="window.location.href='upload?id=${ens.getID_ENSEIGNANT()}';">Charger l'emploi du temps</button>
+                     
                        
                       </div>
                     </div>
