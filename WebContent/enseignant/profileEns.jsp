@@ -25,7 +25,7 @@
                       <p class="text-muted font-size-sm"></p>
                       <div class="button1">
                         <c:if test="${exist =='true'}"><button class="btb" onclick="window.location.href='enseignant/download';">Télécharger l'emploi du temps</button></c:if>
-                        <c:if test="${exist =='false'}"><button>Emploi non disponible</button></c:if>
+                        <c:if test="${exist =='false'}"><button class="btb" >Emploi non disponible</button></c:if>
                         <button class="btb" onclick="window.location.href='logout';">LOG OUT</button>
                       </div>
                     </div>
