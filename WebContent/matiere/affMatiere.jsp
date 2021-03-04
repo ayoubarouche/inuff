@@ -91,7 +91,9 @@
                     <div class="card-body">
                       <div class="title1">Filiere </div>
                       <div>
-                        <span class="det">JEE</span>
+                        <c:forEach items="${matiere.getFiliers()}" var="filiere">
+							<span class="det"><c:out value="${filiere.getNOM_FILIERE()}"/></span>
+							</c:forEach> 
                       </div>
                     </div>
                     </div>

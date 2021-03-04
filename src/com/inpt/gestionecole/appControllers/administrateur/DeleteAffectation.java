@@ -48,6 +48,7 @@ public class DeleteAffectation extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+			
 		}
 		else {
 			try {
