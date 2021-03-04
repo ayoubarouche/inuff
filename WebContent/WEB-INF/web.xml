@@ -16,7 +16,7 @@
 </error-page>
 <error-page>
     <error-code>500</error-code>
-    <location>/login</location>
+    <location>/logout</location>
 </error-page>
     
 </web-app>

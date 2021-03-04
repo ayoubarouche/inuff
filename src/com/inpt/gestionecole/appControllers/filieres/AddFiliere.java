@@ -52,7 +52,7 @@ public class AddFiliere extends HttpServlet {
 			filiere.setSEMESTRE(semestre);
 			FiliereController fc = new FiliereController();
 			if(fc.add(filiere)) {
-				
+				request.setAttribute("success", "filière a été ajouté avec succes");
 				response.sendRedirect("/gestionecole/administrateur/filieres");
 				return;
 			}

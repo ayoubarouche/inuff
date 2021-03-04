@@ -42,7 +42,11 @@
 										<button
 											onclick="window.location.href='upload?id=${ens.getID_ENSEIGNANT()}';">Charger
 											l'emploi du temps</button>
-
+											<br>
+											<br>
+										<a class="btn-dark btn col-12 "
+											href="./affectation?id=${filiere.getID_FILIERE()}">affecter
+											a un enseignant ou matiere</a>
 
 									</div>
 								</div>
@@ -136,7 +140,7 @@
 								</div>
 							</div>
 						</div>
-						<a href="./deleteaffectation?id=${filiere.getID_FILIERE()}" class=" btn btn-danger col-sm-12 h-50 mb-3">Supprimer des Affectations</a>
+						
 					</div>
 				</div>
 			</div>
