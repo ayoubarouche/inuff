@@ -41,7 +41,7 @@ public boolean add(Matiere m) {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 ;
 				return true;
 			}
 		}
@@ -53,7 +53,7 @@ public List<Matiere> allMatiere() {
 	session = HibernateSessionFactory.buildSessionFactory().openSession();
 	Query query = session.createQuery("from Matiere");
 	matieres = query.list();
-	session.close();
+	 
 	return matieres;
 }
 	
@@ -75,6 +75,7 @@ public List<Matiere> allMatiere() {
 	}
 	public boolean deleteMatiere(Matiere matiere) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.delete(matiere);
@@ -90,7 +91,7 @@ public List<Matiere> allMatiere() {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}
@@ -99,6 +100,7 @@ public List<Matiere> allMatiere() {
 	
 	public boolean updateMatiere(Matiere M) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.update(M);
@@ -114,7 +116,7 @@ public List<Matiere> allMatiere() {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}

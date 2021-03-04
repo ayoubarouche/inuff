@@ -188,12 +188,11 @@ public class Affichage extends HttpServlet {
 	
 	
 	public void afficherSalle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int id = 0;
+		int id ;
 		try {
 			id = Integer.parseInt(request.getParameter("id"));
 		} catch (Exception e) {
-			response.getWriter().append("erreur no matiere found").append(request.getContextPath());
-
+			id = 0;
 		}
 		if (id == 0) {
 			SalleController sallController = new SalleController();
@@ -215,6 +214,10 @@ public class Affichage extends HttpServlet {
 				getServletContext().getRequestDispatcher("/salle/affSalle.jsp").forward(request, response);
 				return;
 			}
+		}
+		else {
+			response.getWriter().append("erreur no salle found").append(request.getContextPath());
+
 		}
 
 	}

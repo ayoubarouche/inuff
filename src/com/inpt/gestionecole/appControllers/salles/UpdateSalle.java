@@ -13,7 +13,7 @@ import com.inpt.gestionecole.models.Salle;
 /**
  * Servlet implementation class UpdateSalle
  */
-@WebServlet("/amdinistrateur/salles/update")
+@WebServlet("/administrateur/salles/update")
 public class UpdateSalle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,10 +36,9 @@ public class UpdateSalle extends HttpServlet {
 			Salle salle = sc.findSallebyid(id);
 			request.setAttribute("salle", salle);
 
-			getServletContext().getRequestDispatcher("/filiere/updateSalle.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/Salle/updateSalle.jsp").forward(request, response);
 		}else {
 			response.getWriter().append("Served at: ").append(request.getContextPath());
-
 			String nomsalle = request.getParameter("nomsalle");
 			int idsalle = Integer.parseInt(request.getParameter("idsalle"));
 			int numsalle = Integer.parseInt(request.getParameter("numsalle"));

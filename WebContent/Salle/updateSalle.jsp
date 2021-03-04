@@ -17,7 +17,11 @@
 	href="${pageContext.request.contextPath}/css/sidebar.css">
 </head>
 <body>
-<%@ include file="/sidebar/base1.jsp" %>
+<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Salles" />
+		<jsp:param value="salle" name="type" />
+		<jsp:param value="salles" name="types" />
+	</jsp:include>
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Modifier Salle</div>
@@ -32,7 +36,7 @@
 				</div>
 				<div class="input-box">
 						<span class="det">Nom Salle</span> <input type="text"
-						name="nomsalle"	placeholder="Entrer le Nom de la Salle" value="${filiere.getNOM_SALLE()}" required>
+						name="nomsalle"	placeholder="Entrer le Nom de la Salle" value="${salle.getNOM_SALLE()}" required>
 				</div>
 				<div class="input-box">
 						<span class="det">Num Salle</span> <input type="number"

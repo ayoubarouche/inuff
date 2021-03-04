@@ -39,7 +39,7 @@ public boolean add(Salle s) {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}
@@ -51,7 +51,7 @@ public List<Salle> allSalle() {
 	session = HibernateSessionFactory.buildSessionFactory().openSession();
 	Query query = session.createQuery("from Salle");
 	salles = query.list();
-	session.close();
+	 
 	return salles;
 }
 	
@@ -73,6 +73,7 @@ public List<Salle> allSalle() {
 	}
 	public boolean deleteSalle(Salle salle) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.delete(salle);
@@ -88,7 +89,7 @@ public List<Salle> allSalle() {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}
@@ -97,6 +98,7 @@ public List<Salle> allSalle() {
 	
 	public boolean updateSalle(Salle S) {
 		try {
+			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
 			session.update(S);
@@ -112,7 +114,7 @@ public List<Salle> allSalle() {
 			}
 		} finally {
 			if (session != null) {
-				session.close();
+				 
 				return true;
 			}
 		}

@@ -19,34 +19,60 @@
 <h3>MATIERES</h3>
 </div>
 <br>
+<div class="content">
+		<div class="container">
 
-       <table class="table-fill">
-	<thead>
-	<tr>
-		<th class="text-left">ID MATIERE</th>
-		<th class="text-left">NOM MATIERE</th>
-		<th class="text-left">SEMESTRE</th>
-		<th class="text-left"> <p class="action" ></p></th>
-	</tr>
-	</thead>
-	<tbody class="table-hover">
-	
-	<c:forEach var="ele" items="${liste}">
-		<tr>
-			<td class="text-left">${ele.getID_MATIERE()}</td>
-			<td class="text-left">${ele.getNOM_MATIERE()}</td>
-			<td class="text-left">${ele.getSEMESTRE()}</td>
-			<td class="text-left"><a class="edit" href="modify?id=${ele.getID_MATIERE()}&table=matieres"  type="button"><i class="fa fa-pencil fa-fw"></i></a><a class="delete" href="delete?id=${ele.getID_MATIERE()}&table=matieres"  type="button"><i class="fa fa-trash-o fa-fw"></i></a></td>
-			
-			
-		</tr>
-	</c:forEach>
-	</tbody>
-</table>
-      <br>
-      <br>
-      <br>
-      <br>
+			<c:forEach var="ele" items="${liste}" varStatus="counter">
+				<c:if test="${counter.index % 3 == 0}">
+					<div class="row">
+				</c:if>
+				<div class="col-lg-4">
+					<div class="text-center card-box">
+						<div class="member-card pt-2 pb-2">
+							<div class="">
+								<h4>${ele.getNOM_MATIERE()}</h4>
+							</div>
+							<button
+								onclick="window.location.href='matieres?id=${ele.getID_MATIERE()}';"
+								, class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Consulter
+								La Filière</button>
+							<div class="mt-4">
+								<div class="row">
+									<div class="col-4">
+										<div class="mt-3">
+											<h4>${ele.getEnseignants().size()}</h4>
+											<p class="mb-0 text-muted">Enseignants</p>
+										</div>
+									</div>
+
+									<div class="col-4">
+										<div class="mt-3">
+											<h4>${ele.getFilieres().size()}</h4>
+											<p class="mb-0 text-muted">Matieres</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- end col -->
+				<c:if test="${counter.index % 3 == 2}">
+		</div>
+		</c:if>
+
+		</c:forEach>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+	<!-- container -->
+	</div>
+
  <jsp:include page="../sidebar/base2.jsp"/>
  </body>
 </html>

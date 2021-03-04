@@ -92,7 +92,7 @@
                   <hr>
                   <div class="row">
                     <div class="button2">
-                      <button onclick="window.location.href='edit?id=${ens.getID_ENSEIGNANT()}&table=enseignants';" >Modifier</button>
+                      <button onclick="window.location.href='enseignant/update?id=${ens.getID_ENSEIGNANT()}&table=enseignants';" >Modifier</button>
                       <button onclick="window.location.href='delete?id=${ens.getID_ENSEIGNANT()}&table=enseignants';">Supprimer</button>
                     </div>
                   </div>

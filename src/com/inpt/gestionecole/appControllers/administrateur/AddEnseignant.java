@@ -16,7 +16,7 @@ import com.inpt.gestionecole.shared.UserController;
 /**
  * Servlet implementation class AddEnseignant
  */
-@WebServlet("/administrateur/enseignants/add")
+@WebServlet("/administrateur/enseignant/add")
 public class AddEnseignant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

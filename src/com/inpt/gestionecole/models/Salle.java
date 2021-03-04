@@ -1,8 +1,22 @@
 package com.inpt.gestionecole.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Salle")
 public class Salle {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_SALLE")
 	private int ID_SALLE;
+	@Column(name = "NOM_SALLE")
 	private String NOM_SALLE;
+	@Column(name = "NUM_SALLE")
 	private int NUM_SALLE;
 
 	public Salle() {

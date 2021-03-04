@@ -11,7 +11,11 @@
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
   </head>
   <body>
-<%@ include file="/sidebar/base1.jsp" %>
+	<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Enseignants" />
+		<jsp:param value="enseignant" name="type" />
+		<jsp:param value="enseignants" name="types" />
+	</jsp:include>
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Charger l'emploi du temps</div>
@@ -51,7 +55,7 @@
 				</div>
 			</div>
 			<div class="button">
-				<input type="reset" value="Annuler">
+				<a href="./administrateur/enseignants"><input type="reset" value="Annuler"></a>
 				<input type="submit" value="Charger">
 			</div>
 		</form>
