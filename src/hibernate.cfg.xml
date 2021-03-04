@@ -23,6 +23,6 @@
  
     	
     	<mapping class="com.inpt.gestionecole.models.Salle"/>
-    	<mapping class="com.inpt.gestionecole.models.Horaire"/>
+
     </session-factory>
 </hibernate-configuration>
