@@ -1,19 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>       
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
-  <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Sidebar</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
-  	  	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/affichage.css">
-  	
-	<script src="${pageContext.request.contextPath}/js/sidebar.js"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidebar</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/sidebar1.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/affichage.css">
+
+<script src="${pageContext.request.contextPath}/js/sidebar.js"></script>
   </head>
   <body>
-<jsp:include page="../sidebar/base1.jsp"/>
+<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Matieres" />
+		<jsp:param value="matiere" name="type" />
+		<jsp:param value="matieres" name="types" />
+		
+	</jsp:include>
 
  <div class="table-title">
 <h3>MATIERES</h3>
@@ -35,7 +49,7 @@
 							<button
 								onclick="window.location.href='matieres?id=${ele.getID_MATIERE()}';"
 								, class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Consulter
-								La Filière</button>
+								La Matière</button>
 							<div class="mt-4">
 								<div class="row">
 									<div class="col-4">
@@ -47,7 +61,7 @@
 
 									<div class="col-4">
 										<div class="mt-3">
-											<h4>${ele.getFilieres().size()}</h4>
+											<h4>${ele.getFiliers().size()}</h4>
 											<p class="mb-0 text-muted">Matieres</p>
 										</div>
 									</div>

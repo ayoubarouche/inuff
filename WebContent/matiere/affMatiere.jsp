@@ -18,7 +18,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center" >
-                    <img src="https://www.freeiconspng.com/uploads/white-letter-f-icon-png-28.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="https://www.freeiconspng.com/uploads/letter-m-icon-png-33.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><c:out value="${matiere.getNOM_MATIERE()}"/></h4>
                       <p class="text-secondary mb-1"></p>
