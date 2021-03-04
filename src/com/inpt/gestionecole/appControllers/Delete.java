@@ -11,6 +11,7 @@ import com.inpt.gestionecole.databaseControllers.EnseignantController;
 import com.inpt.gestionecole.databaseControllers.FiliereController;
 import com.inpt.gestionecole.databaseControllers.MatiereController;
 import com.inpt.gestionecole.databaseControllers.SalleController;
+import com.inpt.gestionecole.models.Enseignant;
 
 /**
  * Servlet implementation class Delete
@@ -37,7 +38,11 @@ public class Delete extends HttpServlet {
 		switch(table) {
 		  case "enseignants":
 			EnseignantController ensController = new EnseignantController();
-			ensController.deleteEnseignant(ensController.findEnseignantbyid(id));
+			Enseignant ens= ensController.findEnseignantbyid(id);
+		if(ens==null)System.out.println("enseignant is nulll   ");
+		else System.out.println("the id of enseignant is : "+ens.getID_ENSEIGNANT());
+			ensController.deleteEnseignant(ens);
+			
 			response.sendRedirect(request.getContextPath()+"/administrateur/enseignants");
 		    break;
 		  case "salles":

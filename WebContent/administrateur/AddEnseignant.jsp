@@ -14,7 +14,7 @@
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Ajouter Enseignant</div>
-		<form action="${pageContext.request.contextPath}/administrateur/enseignants/add" method="post">
+		<form action="${pageContext.request.contextPath}/administrateur/enseignant/add" method="post">
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Nom</span>
