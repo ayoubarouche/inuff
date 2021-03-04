@@ -1,3 +1,4 @@
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 	<div class="navigation" id="nav">
 
 		<ul>
@@ -16,29 +17,33 @@
 				</a>
 			</li>
 			<li class="ico">
-				<a href="#">
+				<a href="${pageContext.request.contextPath}/administrateur/${param.types}">
 					<span class="icon"><i class="fa fa-list" aria-hidden="true"></i></span>
 					<span class="title">Afficher</span>
 				</a>
 			</li>
 			<li class="ico">
-				<a href="#">
+				<a href='${pageContext.request.contextPath}/administrateur/${param.type}/add'>
 					<span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
 					<span class="title">Ajouter</span>
 				</a>
 			</li>
+			<c:if test='${param.id == "id"}' >
 			<li class="ico">
-				<a href="#">
+				<a href="href='${pageContext.request.contextPath}/administrateur/${param.type}/add?id${id}">
 					<span class="icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 					<span class="title">Modifier</span>
 				</a>
 			</li>
+			</c:if>
+			<c:if test='${param.id == "id"}' >
 			<li class="ico">
 				<a href="#">
 					<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
 					<span class="title">Supprimer</span>
 				</a>
 			</li>
+				</c:if>
 			<li class="ico" id="g">
 				<a href="./home_admin.jsp">
 					<span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>

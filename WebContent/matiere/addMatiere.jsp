@@ -14,20 +14,20 @@
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Ajouter Matière</div>
-		<form action="#">
+		<form action="${pageContext.request.contextPath}/administrateur/matiere/add" method="post">
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Nom Matière</span>
-					<input type="text" placeholder="Entrer le nom de Matière" required>
+					<input type="text" placeholder="Entrer le nom de Matière" name="nommatiere" required>
 				</div>
 				<div class="input-box">
 					<span class="det">Semestre</span>
-					<input type="text" placeholder="Entrer le Semestre" required>
+					<input type="text" placeholder="Entrer le Semestre" name="semestre" required>
 				</div>
 			</div>
 			<div class="button">
 				<input type="reset" value="Annuler">
-				<input type="submit" value="Ajouter">
+				<input type="submit" name="submit" value="Ajouter">
 			</div>
 		</form>
 	</div>

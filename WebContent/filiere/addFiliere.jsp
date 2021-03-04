@@ -11,7 +11,13 @@
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
   </head>
   <body>
-<%@ include file="/sidebar/base1.jsp" %>
+
+	<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Filieres" />
+		<jsp:param value="filiere" name="type"/>
+		<jsp:param value="filieres" name="types"/>
+		<jsp:param value="${filiere.getID_FILIERE() }" name="id"/>
+	</jsp:include>
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Ajouter Filière</div>

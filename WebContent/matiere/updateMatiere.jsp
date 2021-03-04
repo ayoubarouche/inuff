@@ -14,21 +14,21 @@
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Modifier Matière</div>
-		<form action="#">
+		<form action="${pageContext.request.contextPath}/administrateur/matieres/update" method="post">
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Id Matière</span>
-					<input type="text" readonly value="id matière">
+					<input type="text" name="idmatiere" readonly value="${matiere.getID_MATIERE()}">
 				</div>
 				<div class="input-box">
 				</div>
 				<div class="input-box">
 					<span class="det">Nom Matière</span>
-					<input type="text" placeholder="Entrer le nom de Matière" required>
+					<input type="text" placeholder="Entrer le nom de Matière" value="${matiere.getNOM_MATIERE()}" required>
 				</div>
 				<div class="input-box">
 					<span class="det">Semestre</span>
-					<input type="text" placeholder="Entrer le Semestre" required>
+					<input type="text" placeholder="Entrer le Semestre" value="${matiere.getSEMESTRE()}"  required>
 				</div>
 			</div>
 			<div class="button">

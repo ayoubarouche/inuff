@@ -66,8 +66,9 @@
         
                   <div class="row">
                     <div class="button2">
-                      <button >Modifier</button>
-                      <button >Supprimer</button>
+                          <button ><a href='${pageContext.request.contextPath}/administrateur/matieres/update?id=<c:out value="${matiere.getID_MATIERE()}"/>'>Modifier</a></button>
+                      <button style="width: 100px"><a href='${pageContext.request.contextPath}/administrateur/delete?table=matieres&id=<c:out value="${matiere.getID_MATIERE()}"/>'>Supprimer</a></button>
+                  
                     </div>
                   </div>
                 </div>

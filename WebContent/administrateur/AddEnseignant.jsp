@@ -27,7 +27,7 @@
 			</div>
 			<div class="button">
 				<input type="reset" value="Annuler">
-				<input type="submit" value="Ajouter">
+				<input type="submit" name="submit" value="Ajouter">
 			</div>
 		</form>
 	</div>

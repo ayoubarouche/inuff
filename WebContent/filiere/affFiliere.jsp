@@ -7,14 +7,25 @@
 	<meta charset="utf-8">
     <title>afficher Filiere</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profile.css">
+ 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar1.css">
+ 
 </head>
 <body>
+	<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Filieres" />
+		<jsp:param value="filiere" name="type"/>
+		<jsp:param value="filieres" name="types"/>
+		<jsp:param value="${filiere.getID_FILIERE()}" name="id"/>
+	</jsp:include>
 <div class="container">
+       
     <div class="main-body">
           <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
+         	 <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center" >
@@ -27,6 +38,9 @@
                   </div>
                 </div>
               </div>
+              <br>
+              <a class="btn-dark btn col-12 " href ="./affectation?id=${filiere.getID_FILIERE()}">affecter a un enseignant ou matiere</a>
+    
             </div>
             <div class="col-md-8">
               <div class="card mb-3">
@@ -83,7 +97,8 @@
                   <div class="row">
                     <div class="button2">
                       <button ><a href='${pageContext.request.contextPath}/administrateur/filieres/update?id=<c:out value="${filiere.getID_FILIERE()}"/>'>Modifier</a></button>
-                      <button style="width: 100px"><a href='${pageContext.request.contextPath}/administrateur/delete?table=filieres&id=<c:out value="${filiere.getID_FILIERE()}"/>'>Supprimer</a></button>
+                      <button><a href='${pageContext.request.contextPath}/administrateur/delete?table=filieres&id=<c:out value="${filiere.getID_FILIERE()}"/>'>Supprimer</a></button>
+                    		
                     </div>
                   </div>
                 </div>
