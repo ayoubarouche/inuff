@@ -11,7 +11,7 @@
    
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profile.css">
- 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar1.css">
+ 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
  
 </head>
 <body>
@@ -91,12 +91,9 @@
                   </div>
                   <hr>
                   <div class="row">
-                    <div class="button2">
-                      <div class="button2">
+                    <div class="button">
                       <button ><a href='${pageContext.request.contextPath}/administrateur/administrateurs/update?id=<c:out value="${admin.getID_ADMINISTRATEUR()}"/>'>Modifier</a></button>
-                      <button><a href='${pageContext.request.contextPath}/administrateur/delete?table=administrateurs&id=<c:out value="${admin.getID_ADMINISTRATEUR()}"/>'>Supprimer</a></button>
-                    </div>
-                  </div>
+                      </div>
                 </div>
               </div>
             </div>
