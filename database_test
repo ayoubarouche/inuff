@@ -1,0 +1,37 @@
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (1, 'chami', 'inpt2021', 'CHAMI', 'Mouhcine');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (2, 'elhamlaoui', '1112', 'EL HAMLAOUI', 'Mahmoud');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (3, 'elissati', '1113', 'EL ISSATI', 'OUSSAMA');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (4, 'baina', '1114', 'BAINA', 'AMINE');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (5, 'barka', '1115', 'BARKA', 'HAFID');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (6, 'ziyati', '1116', 'ZIYATI', 'EL HOUSSAINE');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (7, 'belmekki', '1117', 'BELMEKKI', 'ABDELHAMID');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (8, 'tamtaoui', '1118', 'TAMTAOUI', 'AHMED');
+insert into Enseignant (ID_ENSEIGNANT, USERNAME ,MDP_ENSEIGNANT , NOM_ENSEIGNANT , PRENOM_ENSEIGNANT) values (9, 'alami', '1119', 'ALAMI', 'MUSTAPHA');
+
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (1, 'System on chip', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (2, 'Web interface', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (3, 'Capteurs et actuateurs', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (4, 'Big data', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (5, 'Traitement du signal', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (6, 'Processus logiciel', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (7, 'Marketing fondamental', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (8, 'Sécurité des réseaux', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (9, 'Processus logiciel', 'S3');
+insert into Matiere (ID_MATIERE , NOM_MATIERE , SEMESTRE) values (10, 'Sécurité des cartes Javacard', 'S3');
+
+
+insert into Filiere (ID_FILIERE, NOM_FILIERE , NOM_FORMATION , SEMESTRE , CHEF_DE_FILIERE) values (1,'SESNUM','Systèmes embarqués et services numériques', 'S34', 1);
+insert into Filiere (ID_FILIERE, NOM_FILIERE , NOM_FORMATION , SEMESTRE , CHEF_DE_FILIERE) values (2,'DATA','Ingénierie des sciences de données', 'S34',4 );
+insert into Filiere (ID_FILIERE, NOM_FILIERE , NOM_FORMATION , SEMESTRE , CHEF_DE_FILIERE) values (3,'ICCN','Ingénierie Cybersécurité Et Confiance Numérique', 'S34',7);
+insert into Filiere (ID_FILIERE, NOM_FILIERE , NOM_FORMATION , SEMESTRE , CHEF_DE_FILIERE) values (4,'SMART ICT','Smart Information & Communication Technology Engineering', 'S34',8 );
+
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (1, 'AMPHI', 1 );
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (2, 'AMPHI', 2 );
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (3, 'AMPHI', 3 );
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (4, 'AMPHI', 4 );
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (5, 'AMPHI', 5 );
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (6, 'TP', 1);
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (7, 'TP', 2);
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (8, 'TP', 3);
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (9, 'TD', 1);
+insert into Salle (ID_SALLE , NOM_SALLE , NUM_SALLE) values (10, 'TD', 2);
