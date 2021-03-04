@@ -17,6 +17,7 @@ import com.inpt.gestionecole.databaseControllers.EnseignantController;
 import com.inpt.gestionecole.databaseControllers.FiliereController;
 import com.inpt.gestionecole.databaseControllers.MatiereController;
 import com.inpt.gestionecole.databaseControllers.SalleController;
+import com.inpt.gestionecole.models.Administrateur;
 import com.inpt.gestionecole.models.Enseignant;
 import com.inpt.gestionecole.models.Filiere;
 import com.inpt.gestionecole.models.Matiere;
@@ -50,9 +51,17 @@ public class Affichage extends HttpServlet {
 
 		switch (request.getServletPath()) {
 		case "/administrateur/administrateurs":
-			AdministrateurController adminController = new AdministrateurController();
+			/*AdministrateurController adminController = new AdministrateurController();
+			 * 
 			request.setAttribute("liste", adminController.allAdministrateur());
 			getServletContext().getRequestDispatcher("/administrateur/administrateurs.jsp").forward(request, response);
+			break;*/
+			
+			try {
+				afficherAdministrateur(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
 		case "/administrateur/enseignants":
 		/*	EnseignantController ensController = new EnseignantController();
@@ -252,5 +261,36 @@ public class Affichage extends HttpServlet {
 			}
 		}
 	}
+	public void afficherAdministrateur(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int id = 0;
+		try {
+			id = Integer.parseInt(request.getParameter("id"));
+		} catch (Exception e) {
+			response.getWriter().append("erreur no admin found").append(request.getContextPath());
+
+		}
+		if (id == 0) {
+			AdministrateurController adminController = new AdministrateurController();
+	
+			
+			request.setAttribute("liste", adminController.allAdministrateur());
+			getServletContext().getRequestDispatcher("/administrateur/administrateurs.jsp").forward(request, response);
+			return;
+		}
+		if (id > 0) {
+			AdministrateurController adminController = new AdministrateurController();
+			Administrateur administrateur = adminController.findAdministrateurbyid(id);
+			if (administrateur == null) {
+				response.getWriter().append("erreur no admin with that id found").append(request.getContextPath());
+				return;
+			} else {
+				request.setAttribute("administrateur", administrateur);
+				
+				getServletContext().getRequestDispatcher("/administrateur/affAdmin.jsp").forward(request, response);
+				return;
+			}
+		}
+	}
+
 
 }

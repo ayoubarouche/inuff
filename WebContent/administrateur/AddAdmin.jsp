@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!doctype html>
 <html lang="fr">
   <head>
@@ -10,6 +11,14 @@
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
   </head>
   <body>
+
+	<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Salles" />
+		<jsp:param value="administrateur" name="type"/>
+		<jsp:param value="administrateurs" name="types"/>
+		<jsp:param value="${admin.getID_ADMINISTRATEUR()}" name="id"/>
+	</jsp:include>
+  <body>
 <%@ include file="/sidebar/base1.jsp" %>
 <div class="conta" >
 	<div class="container" >
@@ -18,17 +27,18 @@
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Nom</span>
-					<input type="text" placeholder="Entrer le nom" required>
+					<input name="nom" type="text" placeholder="Entrer le nom" value="" required>
 				</div>
 				<div class="input-box">
 					<span class="det">Prénom</span>
-					<input type="text" placeholder="Entrer le prénom" required>
+					<input name="prenom" type="text" placeholder="Entrer le prénom" value="" required>
 				</div>
 			</div>
-			<div class="button">
-				<input type="reset" value="Annuler">
-				<input type="submit" value="Ajouter">
-			</div>
+				<div class="button">
+					<input type="reset" value="Annuler"> <input type="submit"
+					name="submit"
+						value="Ajouter" >
+				</div>
 		</form>
 	</div>
 	</div>

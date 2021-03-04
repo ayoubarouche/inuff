@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,38 +10,42 @@
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
   </head>
   <body>
-<%@ include file="/sidebar/base1.jsp" %>
+	<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Administrateurs" />
+		<jsp:param value="administrateur" name="type" />
+		<jsp:param value="administrateurs" name="types" />
+	</jsp:include>
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Modifier Administrateur</div>
-		<form action="#">
+		<form action="${pageContext.request.contextPath}/administrateur/administrateur/update" method="post">
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Id Administrateur</span>
-					<input type="text" readonly value="id Administrateur">
+					<input type="text" name="idadmin" readonly value="${admin.getID_ADMINISTRATEUR()}">
 				</div>
 				<div class="input-box">
 				</div>
 				<div class="input-box">
 					<span class="det">Nom</span>
-					<input type="text" placeholder="Entrer le nom" required>
+					<input type="text" placeholder="Entrer le nom" name="nom" value="${admin.getNom()}" required>
 				</div>
 				<div class="input-box">
 					<span class="det">Prénom</span>
-					<input type="text" placeholder="Entrer le prénom" required>
+					<input type="text" placeholder="Entrer le prénom" name="prenom" value="${admin.getPrenom()}"required>
 				</div>
 				<div class="input-box">
 					<span class="det">UserName</span>
-					<input type="text" readonly value="UserName">
+					<input type="text"  placeholder="Entrer le username" name="username" value="${admin.getUsername()}">
 				</div>
 				<div class="input-box">
 					<span class="det">Mot de pass</span>
-					<input type="text" readonly value="passwd">
+					<input type="text" name="password" value="${admin.getPassword()}">
 				</div>
 			</div>
 			<div class="button">
 				<input type="reset" value="Annuler">
-				<input type="submit" value="Modifier">
+				<input type="submit" name ="submit" value="Modifier">
 			</div>
 		</form>
 	</div>
