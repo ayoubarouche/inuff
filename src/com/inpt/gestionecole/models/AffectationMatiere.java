@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
-import com.inpt.gestionecole.config.AffectationMatiereId;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -59,14 +57,6 @@ public class AffectationMatiere {
 		this.filiere = filiere;
 	}
 
-	//public AffectationMatiereId getID_AFFECTATION() {
-//		return ID_AFFECTATION;
-	//}
-
-
-	public void setID_AFFECTATION(AffectationMatiereId iD_AFFECTATION) {
-	//	ID_AFFECTATION = iD_AFFECTATION;
-	}
 
 
 	public Enseignant getEnseignant() {
