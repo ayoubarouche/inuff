@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import com.inpt.gestionecole.config.Connexion;
 import com.inpt.gestionecole.config.HibernateSessionFactory;
 import com.inpt.gestionecole.models.Administrateur;
+import com.inpt.gestionecole.models.AffectationMatiere;
 import com.inpt.gestionecole.models.Enseignant;
 import com.inpt.gestionecole.shared.User;
 import com.inpt.gestionecole.shared.UserController;
@@ -103,6 +104,12 @@ public class EnseignantController {
 			session.close();
 			session = HibernateSessionFactory.buildSessionFactory().openSession();
 			session.beginTransaction();
+			List<AffectationMatiere> affectations = enseignant.getMatier_filiere();
+		    AffectationMatiereController affController = new AffectationMatiereController();
+		    
+			for(AffectationMatiere affectation : affectations) {
+			affController.deleteAffectationMatiere(affectation);
+			}
 			session.delete(enseignant);
 
 			session.getTransaction().commit();

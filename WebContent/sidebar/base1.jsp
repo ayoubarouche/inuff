@@ -45,7 +45,7 @@
 			</li>
 				</c:if>
 			<li class="ico" id="g">
-				<a href="./home_admin.jsp">
+				<a href="${pageContext.request.contextPath}/administrateur/home_admin.jsp">
 					<span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
 					<span class="title">Home</span>
 				</a>

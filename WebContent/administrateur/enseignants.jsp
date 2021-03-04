@@ -15,7 +15,12 @@
 	
   </head>
   <body>
-<jsp:include page="../sidebar/base1.jsp"/>
+	<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Enseignants" />
+		<jsp:param value="enseignant" name="type" />
+		<jsp:param value="enseignants" name="types" />
+		
+	</jsp:include>
  <div class="table-title">
 <h3>ENSEIGNANTS</h3>
 </div>

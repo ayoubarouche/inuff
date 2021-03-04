@@ -41,11 +41,12 @@ public class HelloServlet extends HttpServlet {
 			if(session.getAttribute("logedin")!=null) {
 				 
 			if(session.getAttribute("admin")!=null)response.sendRedirect("Administrateur");
-			else response.sendRedirect("Enseignant");
+			else if(session.getAttribute("enseignant")!=null)response.sendRedirect("Enseignant");
 			}
 			else {
+				
 				// if it's not loged in it will returned to login page
-				response.sendRedirect("Auth.jsp");
+				response.sendRedirect("logout");
 			}
 	}
 

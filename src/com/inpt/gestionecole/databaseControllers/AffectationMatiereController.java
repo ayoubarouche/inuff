@@ -55,7 +55,7 @@ public class AffectationMatiereController {
 		//return nb;
 	}
 	public List<AffectationMatiere> allAffectationMatiere() {
-		List<AffectationMatiere> affectationmatieres = new ArrayList<AffectationMatiere>();
+		List<AffectationMatiere> affectationmatieres = null;
 		session = HibernateSessionFactory.buildSessionFactory().openSession();
 		Query query = session.createQuery("from Affectation");
 		affectationmatieres = query.list();

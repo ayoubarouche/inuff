@@ -22,9 +22,6 @@ import java.util.Objects;
 @Entity  
 @Table(name="Affectation")  
 public class AffectationMatiere {
-//	@EmbeddedId
-	//AffectationMatiereId ID_AFFECTATION;
-	
 	@Id
 	@Column(name  = "ID_AFFECTATION")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

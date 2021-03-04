@@ -122,7 +122,6 @@ public class Enseignant {
 			if (affectation.getEnseignant().equals(this) && affectation.getFiliere().equals(filiere)
 					&& affectation.getMatiere().equals(matiere)) {
 				iterator.remove();
-	
 				affectation.getFiliere().getMatier_enseignant().remove(affectation);
 				affectation.getMatiere().getFiliere_enseignant().remove(affectation);
 				affectation.setEnseignant(null);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,11 +11,13 @@
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
   </head>
   <body>
+  <c:if test="${session.admin != null}">
 	<jsp:include page="/sidebar/base1.jsp">
 		<jsp:param name="tabletype" value="Enseignants" />
 		<jsp:param value="enseignant" name="type" />
 		<jsp:param value="enseignants" name="types" />
 	</jsp:include>
+	</c:if>
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Modifier Enseignant</div>

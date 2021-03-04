@@ -38,6 +38,7 @@ public class EnseignantMainPage extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("logedin")!=null) {
 			Enseignant ens =(Enseignant)session.getAttribute("enseignant");
+			if(ens==null)response.sendRedirect("/logout");
 			Set<Matiere> matieres = ens.getMatiers(); 
 			Set<Filiere> filieres = ens.getFiliers(); 
 			request.setAttribute("matieres", matieres);

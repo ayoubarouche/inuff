@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Page introuvable !</title>
-	<link type="text/css" rel="stylesheet" href="css/pageNotFound.css" />
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/pageNotFound.css" />
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 			</div>
 			<h2>OOPS ! Page introuvable !</h2>
 			<p>La page que vous recherchez a peut-être été supprimée, son nom a été modifié ou elle est temporairement indisponible.</p>
-			<a href="#">Retour à l'accueil</a>
+			<a href="${pageContext.request.contextPath}">Retour à l'accueil</a>
 		</div>
 	</div>
 

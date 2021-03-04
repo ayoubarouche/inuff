@@ -9,7 +9,13 @@
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/sidebar.css">
   </head>
   <body>
-<%@ include file="/sidebar/base1.jsp" %>
+<jsp:include page="/sidebar/base1.jsp">
+		<jsp:param name="tabletype" value="Matieres" />
+		<jsp:param value="matiere" name="type" />
+		<jsp:param value="matieres" name="types" />
+		
+	</jsp:include>
+
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Ajouter Matière</div>

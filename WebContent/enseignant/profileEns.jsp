@@ -78,7 +78,7 @@
                   <hr>
                   <div class="row">
                     <div class="button">
-                        <button onclick="window.location.href='edit?id=${enseignant.getID_ENSEIGNANT()}&table=enseignants';"  >Modifier</button>
+                        <button onclick="window.location.href='enseignant/update?id=${enseignant.getID_ENSEIGNANT()}&table=enseignants';"  >Modifier</button>
                       </div>
                   </div>
                   <hr>

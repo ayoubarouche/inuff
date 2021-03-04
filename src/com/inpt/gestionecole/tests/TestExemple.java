@@ -41,28 +41,47 @@ static Session session ;
 		AffectationMatiereController aff = new AffectationMatiereController();
 			Enseignant ens = new Enseignant();
 			ens.setID_ENSEIGNANT(14);
-			ens.setNom("arouche");
+			ens.setNom("google");
 			ens.setPassword("hello");
-			ens.setUsername("username");
+			ens.setUsername("google");
+			ens.setPrenom("test");
 			Filiere filiere = new Filiere();
 			filiere.setNOM_FILIERE("sesnum");
 			filiere.setNOM_FORMATION("system embarques");
 			filiere.setSEMESTRE("12");
-			filiere.setCHEF_DE_FILIERE(1);
+			filiere.setCHEF_DE_FILIERE(17);
 			Matiere matiere = new Matiere();
-			matiere.setNOM_MATIERE("math");
+			matiere.setNOM_MATIERE("java c++");
 			matiere.setSEMESTRE("12");
-			matiere.setID_MATIERE(6);
-			filiere.setID_FILIERE(1);
+			//matiere.setID_MATIERE(6);
+		//	filiere.setID_FILIERE(1);
 			try {
 				session = HibernateSessionFactory.buildSessionFactory().openSession();
 				session.beginTransaction();
 			//	ens.AddFiliereAndMatiere(filiere, matiere);
-				filiere = new FiliereController().findFilierebyid(1);
-				matiere = new MatiereController().findMatierebyid(6);
-				ens = new EnseignantController().findEnseignantbyid(14);
-				ens.RemoveFiliereAndMatiere(filiere, matiere);
-				System.out.println(ens.getID_ENSEIGNANT());
+			//	filiere = new FiliereController().findFilierebyid(19);
+				
+			//ens = new EnseignantController().findEnseignantbyid(17);
+			//	session.save(matiere);
+			//	matiere = new MatiereController().findMatierebyid(10);
+				//ens.RemoveFiliereAndMatiere(filiere, matiere);
+			//	session.save(filiere);
+		//	ens.AddFiliereAndMatiere(filiere, matiere);
+//			AffectationMatiereController afc = new AffectationMatiereController();
+				//AffectationMatiere am = new AffectationMatiere();
+			//	am.setEnseignant(ens);
+				//am.setFiliere(filiere);
+			//	am.setMatiere(matiere);
+			//	afc.add(am);
+			//	ens = new EnseignantController().findEnseignantbyid(17);
+			session.save(ens);
+				 //List<AffectationMatiere> afff =ens.getMatier_filiere();
+		/*	if(afff != null ) {
+				System.out.println(afff.get(afff.size()-1).getFiliere().getID_FILIERE());
+			}*/
+			//	List<Enseignant> 
+				
+				System.out.println(ens.getMatiers().size());
 				session.getTransaction().commit();
 			}catch (Exception e) {
 				// TODO: handle exception

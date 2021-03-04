@@ -15,7 +15,7 @@ import com.inpt.gestionecole.models.Filiere;
 /**
  * Servlet implementation class UpdateEnseignant
  */
-@WebServlet("/administrateur/enseignant/update")
+@WebServlet({"/administrateur/enseignant/update","/enseignant/update"})
 public class UpdateEnseignant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

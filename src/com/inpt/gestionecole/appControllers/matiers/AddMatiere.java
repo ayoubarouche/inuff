@@ -50,7 +50,8 @@ public class AddMatiere extends HttpServlet {
 
 			MatiereController mc = new MatiereController();
 			if(mc.add(matiere)) {
-				response.getWriter().append("matiere added ");
+				response.sendRedirect("/gestionecole/administrateur/matieres");
+				return;
 			}
 			else response.getWriter().append("matiere not added ");
 		
