@@ -18,7 +18,7 @@
 <div class="conta" >
 	<div class="container" >
 		<div class="title1">Modifier Administrateur</div>
-		<form action="${pageContext.request.contextPath}/administrateur/administrateur/update" method="post">
+		<form action="${pageContext.request.contextPath}/administrateur/administrateurs/update" method="post">
 			<div class="details">
 				<div class="input-box">
 					<span class="det">Id Administrateur</span>
