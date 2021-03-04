@@ -78,6 +78,10 @@ body{
   margin: auto;
   margin-left: 68%;
 }
+.button1 .btb
+{
+  margin-bottom: 15px;
+}
 .card {
     position: relative;
     display: flex;
