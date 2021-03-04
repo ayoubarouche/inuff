@@ -62,7 +62,7 @@
 									<div class="col-4">
 										<div class="mt-3">
 											<h4>${ele.getFiliers().size()}</h4>
-											<p class="mb-0 text-muted">Matieres</p>
+											<p class="mb-0 text-muted">Filieres</p>
 										</div>
 									</div>
 								</div>
