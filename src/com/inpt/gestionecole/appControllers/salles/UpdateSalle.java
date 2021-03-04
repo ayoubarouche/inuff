@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.inpt.gestionecole.databaseControllers.SalleController;
+import com.inpt.gestionecole.models.Salle;
+
 /**
  * Servlet implementation class UpdateSalle
  */
@@ -27,7 +30,33 @@ public class UpdateSalle extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		SalleController sc = new SalleController();
+		if (request.getParameter("submit") == null) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			Salle salle = sc.findSallebyid(id);
+			request.setAttribute("salle", salle);
+
+			getServletContext().getRequestDispatcher("/filiere/updateSalle.jsp").forward(request, response);
+		}else {
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+
+			String nomsalle = request.getParameter("nomsalle");
+			int idsalle = Integer.parseInt(request.getParameter("idsalle"));
+			int numsalle = Integer.parseInt(request.getParameter("numsalle"));
+			Salle salletomodify = sc.findSallebyid(idsalle);
+			if (salletomodify != null) {
+				salletomodify.setNOM_SALLE(nomsalle);
+				salletomodify.setNUM_SALLE(numsalle);
+				
+				if (sc.updateSalle(salletomodify)) {
+					response.sendRedirect("/gestionecole/administrateur/salles?id"+idsalle);
+				} else {
+					response.getWriter().append("salle update erreur ");
+				}
+			} else {
+				response.getWriter().append("salle id not found ");
+			}
+		}
 		
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
