@@ -21,7 +21,7 @@
    	<mapping class="com.inpt.gestionecole.models.Matiere"/>
 	    <mapping class="com.inpt.gestionecole.models.AffectationMatiere"/>
  
-    	<mapping class="com.inpt.gestionecole.config.AffectationMatiereId"/>
+    	
     	<mapping class="com.inpt.gestionecole.models.Salle"/>
     	<mapping class="com.inpt.gestionecole.models.Horaire"/>
     </session-factory>
